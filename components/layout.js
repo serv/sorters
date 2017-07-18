@@ -16,15 +16,15 @@ const menu = [
         url: '/users',
         name: 'users',
         label: 'Sorters'
-    }
-]
-
-const userMenu = [
+    },
     {
         url: '/dashboard',
         name: 'dashboard',
         label: 'Dashboard'
-    },
+    }
+]
+
+const userMenu = [
     {
         url: '/profile',
         name: 'profile',

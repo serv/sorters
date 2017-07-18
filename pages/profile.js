@@ -1,7 +1,6 @@
 import {Component} from 'react'
 import Layout from '../components/layout'
 import withPage from '../providers/page'
-import {withUser} from 'ooth-client-react'
 import {compose} from 'recompose'
 import {graphql} from 'react-apollo'
 import gql from 'graphql-tag'

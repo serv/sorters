@@ -2,7 +2,6 @@ import Layout from '../components/layout'
 import withPage from '../providers/page'
 
 export default withPage((props) => {
-  console.log(props)
   return <Layout title="Sort yourself out!" page="home">
         <div className="container">
           <div className="jumbotron">

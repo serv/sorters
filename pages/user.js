@@ -61,7 +61,6 @@ const UserQuery = gql`
     }
 `
 const UserComponent = (props) => {
-    console.log(props)
     const {data: {loading, userByUsername: user, error}} = props
     if (loading) {
         return <p>Loading...</p>
