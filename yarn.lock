@@ -4038,9 +4038,9 @@ sshpk@^1.7.0:
     jsbn "~0.1.0"
     tweetnacl "~0.14.0"
 
-staart@^0.4.1:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/staart/-/staart-0.4.1.tgz#0199e4935337483261490da746157d09658b9720"
+staart@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/staart/-/staart-0.4.2.tgz#3145e9509768d1a02bdb5b25d3093e1602ae35af"
   dependencies:
     ooth-client-react "^0.8.0"
     prop-types "^15.5.10"
