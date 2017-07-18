@@ -3132,9 +3132,9 @@ ooth-client-react@^0.8.0:
     react "^15.4.2"
     recompose "^0.22.0"
 
-ooth-client@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/ooth-client/-/ooth-client-0.9.0.tgz#6b766af6fd8a245826a42d8cf1e62b6605320101"
+ooth-client@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/ooth-client/-/ooth-client-0.9.1.tgz#c89f1f29ce5de8e20de8a44dc090a672d1a46910"
   dependencies:
     babel-cli "^6.24.1"
     babel-preset-env "^1.6.0"
