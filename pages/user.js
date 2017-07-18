@@ -3,6 +3,7 @@ import withPage from '../providers/page'
 import {graphql} from 'react-apollo'
 import gql from 'graphql-tag'
 import {compose} from 'recompose'
+import Markdown from '../components/markdown'
 
 export default withPage(({url: {query: {username}}}) => (
     <Layout title="Sorter" page="user">
@@ -96,7 +97,7 @@ const UserComponent = (props) => {
         <p><a href={`/u/${username}`}>/u/{username}</a></p>
         {profile.about && 
             <div>
-                <p>{profile.about}</p>
+                <Markdown content={profile.about}/>
             </div>
         }
         {urls.length > 0 && <div>
@@ -116,13 +117,13 @@ const UserComponent = (props) => {
         {profile.bio && 
             <div>
                 <h2>Bio</h2>
-                <p>{profile.bio}</p>
+                <Markdown content={profile.bio}/>
             </div>
         }
         {profile.goals &&
             <div>
                 <h2>Goals</h2>
-                <p>{profile.goals}</p>
+                <Markdown content={profile.bio}/>
             </div>
         }
     </div>
