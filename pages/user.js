@@ -123,7 +123,7 @@ const UserComponent = (props) => {
         {profile.goals &&
             <div>
                 <h2>Goals</h2>
-                <Markdown content={profile.bio}/>
+                <Markdown content={profile.goals}/>
             </div>
         }
     </div>
