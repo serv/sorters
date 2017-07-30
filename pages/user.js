@@ -58,6 +58,12 @@ const UserQuery = gql`
                 reddit
                 patreon
             }
+            reads {
+                title
+                read
+                articleUrl
+                videoUrl
+            }
         }
     }
 `
@@ -78,6 +84,8 @@ const UserComponent = (props) => {
     const username = user.local.username
 
     const profile = user.profile || {}
+
+    const reads = user.reads || []
 
     const urls = []
     urlFields.map(({name, label}) => {
@@ -124,6 +132,24 @@ const UserComponent = (props) => {
             <div>
                 <h2>Goals</h2>
                 <Markdown content={profile.goals}/>
+            </div>
+        }
+        {reads.length > 0 &&
+            <div>
+                <h2>Reading List</h2>
+                <ul>
+                    {reads.map(({title, read, articleUrl, videoUrl}, key) => (
+                        <li key={key}>
+                            <span>{title}</span>
+                            {read && <span>&nbsp;✔</span>}
+                            {(articleUrl || videoUrl) && <span>(
+                                {articleUrl && <a href={articleUrl}>article</a>}
+                                {articleUrl && videoUrl && <span>,&nbsp;</span>}
+                                {videoUrl && <a href={videoUrl}>video</a>}
+                            )</span>}
+                        </li>                   
+                    ))}
+                </ul>
             </div>
         }
     </div>

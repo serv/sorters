@@ -133,74 +133,77 @@ class ProfileFormComponent extends Component {
                             <p>To activate your profile set a username in your <a href="/account">account page</a>.</p>
                         </div>
                     }
-                    {!active &&
+                    {active ?
+                        <div>
+                            <h2>Edit Profile</h2>
+                            <Form
+                                onSubmit={() => {
+                                    const profile = {}
+                                    profileFields.forEach(({name, type}) => {
+                                        let value = this[name].value
+                                        switch (type) {
+                                            case 'url':
+                                                if (value && !/^https?:\/\/.+/.test(value)) {
+                                                    value = 'http://' + value
+                                                }
+                                        }
+                                        profile[name] = value
+                                    })
+                                    updateProfile({
+                                        variables: {
+                                            profile
+                                        }
+                                    })
+                                    .then(() => {
+                                        this.setState({
+                                            state: 'success',
+                                            message: 'Profile updated!'
+                                        })
+                                    })
+                                    .catch(e => {
+                                        this.setState({
+                                            state: 'error',
+                                            message: e.message
+                                        })
+                                    })
+                                }}
+                                state={this.state.state}
+                                message={this.state.message}
+                                submitLabel="Save profile"
+                            >
+                                {profileFields.map(({name, label, type}) => (
+                                    <div key={name} className="form-group">
+                                        <label htmlFor={name}>{label}</label>
+                                        {(() => {
+                                            switch (type) {
+                                                case 'text':
+                                                    return <textarea
+                                                        className="form-control"
+                                                        rows="4"
+                                                        ref={ref => {
+                                                            this[name] = ref
+                                                        }}
+                                                        defaultValue={profile[name]}
+                                                    />
+                                                default:
+                                                    return <input
+                                                        type="text"
+                                                        className="form-control"
+                                                        id={name}
+                                                        ref={ref => {
+                                                            this[name] = ref
+                                                        }}
+                                                        defaultValue={profile[name]}
+                                                    />
+                                            }
+                                        })()}
+                                    </div>
+                                ))}
+                            </Form>
+                        </div>
+                    :
                         <Activate onActivate={refetch}/>
                     }
-                    <h2>Edit Profile</h2>
-                    <Form
-                        onSubmit={() => {
-                            const profile = {}
-                            profileFields.forEach(({name, type}) => {
-                                let value = this[name].value
-                                switch (type) {
-                                    case 'url':
-                                        if (value && !/^https?:\/\/.+/.test(value)) {
-                                            value = 'http://' + value
-                                        }
-                                }
-                                profile[name] = value
-                            })
-                            updateProfile({
-                                variables: {
-                                    profile
-                                }
-                            })
-                            .then(() => {
-                                this.setState({
-                                    state: 'success',
-                                    message: 'Profile updated!'
-                                })
-                            })
-                            .catch(e => {
-                                this.setState({
-                                    state: 'error',
-                                    message: e.message
-                                })
-                            })
-                        }}
-                        state={this.state.state}
-                        message={this.state.message}
-                        submitLabel="Save profile"
-                    >
-                        {profileFields.map(({name, label, type}) => (
-                            <div key={name} className="form-group">
-                                <label htmlFor={name}>{label}</label>
-                                {(() => {
-                                    switch (type) {
-                                        case 'text':
-                                            return <textarea
-                                                className="form-control"
-                                                rows="4"
-                                                ref={ref => {
-                                                    this[name] = ref
-                                                }}
-                                                defaultValue={profile[name]}
-                                            />
-                                        default:
-                                            return <input
-                                                type="text"
-                                                className="form-control"
-                                                id={name}
-                                                ref={ref => {
-                                                    this[name] = ref
-                                                }}
-                                                defaultValue={profile[name]}
-                                            />
-                                    }
-                                })()}
-                            </div>
-                        ))}
-                    </Form>
                 </div>
             }
         </div>

@@ -36,6 +36,7 @@ const start = async (app, settings) => {
             active: Boolean
             local: UserLocal
             profile: Profile
+            reads: [Read]
         }
         type UserLocal {
             username: String
@@ -51,6 +52,12 @@ const start = async (app, settings) => {
             twitter: String
             reddit: String
             patreon: String
+        }
+        type Read {
+            title: String!
+            read: Boolean
+            articleUrl: String
+            videoUrl: String
         }
         type Post {
             _id: ID!
@@ -82,6 +89,15 @@ const start = async (app, settings) => {
             reddit: String
             patreon: String
         }
+        input ReadInput {
+            title: String!
+            read: Boolean
+            articleUrl: String
+            videoUrl: String
+        }
+        input NewReadInput {
+            title: String!
+        }
 
         type Query {
             me: User
@@ -94,6 +110,8 @@ const start = async (app, settings) => {
         }
         type Mutation {
             updateProfile(profile: ProfileInput): User
+            updateReads(reads: [ReadInput]!): User
+            createRead(read: NewReadInput!): User
             createPost(title: String, content: String): Post
             createComment(postId: ID!, content: String): Comment
             activateProfile(code: String): Boolean
@@ -136,6 +154,7 @@ const start = async (app, settings) => {
             },
             userByUsername: async (root, {username}, {userId}) => {
                 return prepare(await Users.findOne({
+                    active: true,
                     'local.username': username
                 }))
             }
@@ -175,6 +194,32 @@ const start = async (app, settings) => {
                 }, {
                     $set: {
                         profile
+                    }
+                });
+                return prepare(await Users.findOne(ObjectId(userId)));
+            },
+            updateReads: async (root, {reads}, {userId}, info) => {
+                if (!userId) {
+                    throw new Error('User not logged in.')
+                }
+                await Users.update({
+                    _id: ObjectId(userId)
+                }, {
+                    $set: {
+                        reads
+                    }
+                });
+                return prepare(await Users.findOne(ObjectId(userId)));
+            },
+            createRead: async (root, {read}, {userId}, info) => {
+                if (!userId) {
+                    throw new Error('User not logged in.')
+                }
+                await Users.update({
+                    _id: ObjectId(userId)
+                }, {
+                    $push: {
+                        reads: read
                     }
                 });
                 return prepare(await Users.findOne(ObjectId(userId)));

@@ -31,6 +31,11 @@ const userMenu = [
         label: 'Profile'
     },
     {
+        url: '/reads',
+        name: 'reads',
+        label: 'Reading List'
+    },
+    {
         url: '/account',
         name: 'account',
         label: 'Account'

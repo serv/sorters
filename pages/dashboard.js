@@ -19,6 +19,7 @@ const DashboardComponent = () => (
         <ul>
             <li><a href="/account">Manage your account</a></li>
             <li><a href="/profile">Manage your profile</a></li>
+            <li><a href="/reads">Manage your reading list</a></li>
             <li><a href="/users">Find other sorters</a></li>
         </ul>
     </div>
