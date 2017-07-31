@@ -9,6 +9,7 @@ const morgan = require('morgan')
 const cors = require('cors')
 const nodeify = require('nodeify')
 const ooth = require('./ooth')
+const crypto = require('crypto-browserify')
 
 const prepare = (o) => {
     if (o && o._id) {
@@ -35,6 +36,7 @@ const start = async (app, settings) => {
             _id: ID!
             active: Boolean
             local: UserLocal
+            emailHash: String
             profile: Profile
             reads: [Read]
         }
@@ -157,6 +159,14 @@ const start = async (app, settings) => {
                     active: true,
                     'local.username': username
                 }))
+            }
+        },
+        User: {
+            emailHash: async (user) => {
+                if (user.local && user.local.email) {
+                    const email = user.local.email
+                    return crypto.createHash('md5').update(email).digest("hex")
+                }
             }
         },
         Post: {

@@ -4,6 +4,7 @@ import {graphql} from 'react-apollo'
 import gql from 'graphql-tag'
 import {compose} from 'recompose'
 import Markdown from '../components/markdown'
+import Gravatar from 'react-gravatar'
 
 export default withPage(({url: {query: {username}}}) => (
     <Layout title="Sorter" page="user">
@@ -46,6 +47,7 @@ const UserQuery = gql`
             local {
                 username
             }
+            emailHash
             profile {
                 name
                 about
@@ -82,9 +84,8 @@ const UserComponent = (props) => {
     }
 
     const username = user.local.username
-
+    const emailHash = user.emailHash
     const profile = user.profile || {}
-
     const reads = user.reads || []
 
     const urls = []
@@ -102,12 +103,25 @@ const UserComponent = (props) => {
         <h1>
             {profile.name || username}
         </h1>
-        <p><a href={`/u/${username}`}>/u/{username}</a></p>
-        {profile.about && 
+        <div style={{
+            display: 'flex'
+        }}>
+            {emailHash &&
+                <Gravatar md5={emailHash || username} size={200} style={{
+                    marginRight: '24px',
+                    marginBottom: '24px'
+                }}/>
+            }
             <div>
-                <Markdown content={profile.about}/>
+                <p><a href={`/u/${username}`}>/u/{username}</a></p>
+                {profile.about && 
+                    <div>
+                        <Markdown content={profile.about}/>
+                    </div>
+                }
             </div>
-        }
+            <div style={{clear: 'both'}}/>
+        </div>
         {urls.length > 0 && <div>
             <h2>Links</h2>
             <ul>

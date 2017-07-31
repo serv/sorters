@@ -3,6 +3,9 @@ import withPage from '../providers/page'
 import {graphql} from 'react-apollo'
 import gql from 'graphql-tag'
 import {compose} from 'recompose'
+import Gravatar from 'react-gravatar'
+import Markdown from '../components/markdown'
+import {teaserAndInfo} from '../utils/text'
 
 export default withPage(() => (
     <Layout title="Sorters" page="users">
@@ -20,6 +23,11 @@ const UsersQuery = gql`
             local {
                 username
             }
+            emailHash
+            profile {
+                name
+                about
+            }
         }
     }
 `
@@ -27,15 +35,40 @@ const UsersComponent = ({data: {loading, users}}) => (
     loading ?
         <p>Loading...</p>
     :
-        <ul>
-            {users.map(user => (
-                <li key={user.local.username}>
-                    <a href={`/u/${user.local.username}`}>
-                        {user.local.username}
-                    </a>
-                </li>
-            ))}
-        </ul>
+        <div className="row">
+            {users.map(({local: {username}, emailHash, profile}) => {
+                const {name, about} = profile || {}
+                const {teaser, cut} = teaserAndInfo(about, 140, 150, 160)
+                
+                return <div key={username} className="col-xs-12 col-md-6" style={{
+                    display: 'flex'
+                }}>
+                    <div>
+                        <a href={`/u/${username}`}>
+                            <Gravatar md5={emailHash || username} size={100} style={{
+                                marginRight: '24px',
+                                marginBottom: '24px'
+                            }}/>
+                        </a> 
+                    </div>
+                    <div>
+                        <h3 style={{
+                            marginTop: 0
+                        }}>
+                            <a href={`/u/${username}`}>
+                                {name || username}
+                            </a>
+                        </h3>
+                        <a href={`/u/${username}`}>
+                            /u/{username}
+                        </a>
+                        <div>
+                            <Markdown content={`${teaser}${cut ? ` [more](/u/${username})` : ''}`}/>
+                        </div>
+                    </div>
+                </div>
+            })}
+        </div>
 )
 const Users = compose(
     graphql(UsersQuery)
