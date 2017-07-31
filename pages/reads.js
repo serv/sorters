@@ -27,6 +27,9 @@ const ReadsQuery = gql`
                 articleUrl
                 videoUrl
             }
+            profile {
+                reading
+            }
         }
     }
 `
@@ -44,15 +47,27 @@ const CreateReadQuery = gql`
         }
     }
 `
+const UpdateReadingQuery = gql`
+    mutation($reading: String) {
+        updateReading(reading: $reading) {
+            _id
+        }
+    }
+`
 class ReadsComponent extends Component {
     constructor() {
         super()
         this.state = {}
     }
     render() {
-        const {reads: {loading, me, refetch}, updateReads, createRead} = this.props
+        const {reads: {loading, me, refetch},
+            updateReads,
+            createRead,
+            updateReading
+        } = this.props
         const active = me && me.active
         const username = me && me.local && me.local.username
+        const {reading} = (me && me.profile) || {}
         const reads = (me && me.reads && me.reads.map(({
                 title,
                 read,
@@ -77,6 +92,41 @@ class ReadsComponent extends Component {
                     {username && active && reads.length > 0 &&
                         <p>Your public reading list can be found at <a href={`/u/${username}`}>/u/{username}</a>.</p>
                     }
+                    <h2>Description</h2>
+                    <p>Here you can describe how you put together your reading list.</p>
+                    <Form
+                        onSubmit={() => {
+                            const reading = this.reading.value
+                            updateReading({
+                                variables: {
+                                    reading
+                                }
+                            }).then(() => {
+                                this.setState({
+                                    readingState: 'success',
+                                    readingMessage: 'Reading list description saved.'
+                                })
+                            }).catch(e => {
+                                this.setState({
+                                    readingState: 'error',
+                                    readingMessage: e.message
+                                })
+                            })
+                        }}
+                        state={this.state.readingState}
+                        message={this.state.readingMessage}
+                        submitLabel="Save"
+                    >  
+                        <div className="form-group">
+                            <label htmlFor="reading">Description</label>
+                            <textarea
+                                className="form-control"
+                                rows="4"
+                                ref={ref => this.reading = ref}
+                                defaultValue={reading}
+                            />
+                        </div>
+                    </Form>
                     {reads.length > 0 &&
                         <div>
                             <h2>Your Reads</h2>
@@ -120,7 +170,7 @@ class ReadsComponent extends Component {
                             />
                         </div>
                     }
-                    <h2>New Read</h2>
+                    <h3>New Read</h3>
                     <Form
                         onSubmit={() => {
                             const read = {
@@ -152,6 +202,7 @@ class ReadsComponent extends Component {
                             <input
                                 type="text"
                                 className="form-control"
+                                placeholder={reads.length === 0 ? 'Jordan Peterson - Maps of Meaning' : ''}
                                 ref={ref => {
                                     this.title = ref
                                 }}
@@ -173,7 +224,10 @@ const Reads = compose(
     }),
     graphql(CreateReadQuery, {
         name: 'createRead'
-    })
+    }),
+    graphql(UpdateReadingQuery, {
+        name: 'updateReading'
+    }),
 )(ReadsComponent)
 
 const ReadsListComponent = ({reads, updateRead, removeRead}) => (

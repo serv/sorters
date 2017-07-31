@@ -59,6 +59,7 @@ const UserQuery = gql`
                 twitter
                 reddit
                 patreon
+                reading
             }
             reads {
                 title
@@ -87,6 +88,7 @@ const UserComponent = (props) => {
     const emailHash = user.emailHash
     const profile = user.profile || {}
     const reads = user.reads || []
+    const {name, about, bio, goals, reading} = profile
 
     const urls = []
     urlFields.map(({name, label}) => {
@@ -101,7 +103,7 @@ const UserComponent = (props) => {
 
     return <div>
         <h1>
-            {profile.name || username}
+            {name || username}
         </h1>
         <div style={{
             display: 'flex'
@@ -109,14 +111,16 @@ const UserComponent = (props) => {
             {emailHash &&
                 <Gravatar md5={emailHash || username} size={200} style={{
                     marginRight: '24px',
-                    marginBottom: '24px'
+                    marginBottom: '24px',
+                    width: '200px',
+                    height: '200px'
                 }}/>
             }
             <div>
                 <p><a href={`/u/${username}`}>/u/{username}</a></p>
-                {profile.about && 
+                {about && 
                     <div>
-                        <Markdown content={profile.about}/>
+                        <Markdown content={about}/>
                     </div>
                 }
             </div>
@@ -136,21 +140,22 @@ const UserComponent = (props) => {
                 ))}
             </ul>
         </div>}
-        {profile.bio && 
+        {bio && 
             <div>
                 <h2>Bio</h2>
-                <Markdown content={profile.bio}/>
+                <Markdown content={bio}/>
             </div>
         }
-        {profile.goals &&
+        {goals &&
             <div>
                 <h2>Goals</h2>
-                <Markdown content={profile.goals}/>
+                <Markdown content={goals}/>
             </div>
         }
         {reads.length > 0 &&
             <div>
                 <h2>Reading List</h2>
+                {reading && <Markdown content={reading}/>}
                 <ul>
                     {reads.map(({title, read, articleUrl, videoUrl}, key) => (
                         <li key={key}>

@@ -54,6 +54,7 @@ const start = async (app, settings) => {
             twitter: String
             reddit: String
             patreon: String
+            reading: String
         }
         type Read {
             title: String!
@@ -112,6 +113,7 @@ const start = async (app, settings) => {
         }
         type Mutation {
             updateProfile(profile: ProfileInput): User
+            updateReading(reading: String): User
             updateReads(reads: [ReadInput]!): User
             createRead(read: NewReadInput!): User
             createPost(title: String, content: String): Post
@@ -204,6 +206,19 @@ const start = async (app, settings) => {
                 }, {
                     $set: {
                         profile
+                    }
+                });
+                return prepare(await Users.findOne(ObjectId(userId)));
+            },
+            updateReading: async (root, {reading}, {userId}, info) => {
+                if (!userId) {
+                    throw new Error('User not logged in.')
+                }
+                await Users.update({
+                    _id: ObjectId(userId)
+                }, {
+                    $set: {
+                        'profile.reading': reading
                     }
                 });
                 return prepare(await Users.findOne(ObjectId(userId)));
