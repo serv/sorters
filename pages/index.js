@@ -21,6 +21,13 @@ export default withPage((props) => {
               <p><a className="btn btn-default" href="/register" role="button">Register &raquo;</a></p>
             </div>
             <div className="col-md-4">
+              <h2>Read, write, speak</h2>
+              <p>Rescue your father from the belly of the beast by reading the great works of your culture. Become articulate by writing and speaking about them. Share it all in your reading list.</p>
+              <p><a className="btn btn-default" href="/u/nmaro" role="button">See an example &raquo;</a></p>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-4">
               <h2>Begin the sorter journey</h2>
               <p>Share your progress as you clean your room and learn to read, write and speak, all the while rescuing your father from the underworld.</p>
               <p><a className="btn btn-default" href="/register" role="button">Register &raquo;</a></p>
