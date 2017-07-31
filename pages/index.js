@@ -1,5 +1,6 @@
 import Layout from '../components/layout'
 import withPage from '../providers/page'
+import ResponsiveEmbed from 'react-responsive-embed'
 
 export default withPage((props) => {
   return <Layout title="Sort yourself out!" page="home">
@@ -7,6 +8,14 @@ export default withPage((props) => {
           <div className="jumbotron">
               <h1>Sort yourself out!</h1>
               <p>Join the community of people who like Prof. Jordan Peterson's advice and want to sort themselves out!</p>
+              <div style={{
+                maxWidth: '100%',
+                width: '480px',
+                margin: 'auto',
+                marginBottom: '24px',
+              }}>
+                <ResponsiveEmbed src='https://www.youtube.com/embed/3Z7t92_3ESE' ratio='16:9' />
+              </div>
               <p><a className="btn btn-primary btn-lg" href="/about" role="button">Learn more &raquo;</a></p>
           </div>
           <div className="row">

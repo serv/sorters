@@ -46,6 +46,7 @@
     "react-apollo": "^1.4.4",
     "react-dom": "^15.6.1",
     "react-gravatar": "^2.6.3",
+    "react-responsive-embed": "^2.0.0",
     "react-sortable-hoc": "^0.6.6",
     "redux": "^3.7.2",
     "staart": "^0.4.3"

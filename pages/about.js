@@ -1,5 +1,6 @@
 import Layout from '../components/layout'
 import withPage from '../providers/page'
+import ResponsiveEmbed from 'react-responsive-embed'
 
 export default withPage(() => (
   <Layout title="About Sorters Club" page="about">
@@ -7,7 +8,13 @@ export default withPage(() => (
         <h2>About Sorters Club</h2>
         <p>This is a Jordan Peterson fan site, and a resource for people who want to follow his advice.</p>
         <p>It is based mainly on Peterson's <a href="https://www.youtube.com/watch?v=XbOeO_frzvg">Message to Millennials</a>:</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/XbOeO_frzvg" frameBorder="0" allowFullScreen></iframe>
+        <div style={{
+          maxWidth: '100%',
+          width: '480px',
+          marginBottom: '24px',
+        }}>
+          <ResponsiveEmbed src='https://www.youtube.com/embed/XbOeO_frzvg' ratio='16:9' />
+        </div>
         <p>Check out the profiles of other <a href="/users">sorters</a> do to get an idea of what you can do on this platform.</p>
         <p>Support this platform and discuss its development on <a href="https://www.patreon.com/nickredmark" target="_blank">Patreon</a>.</p>
         <p>For now you can become a member only by becoming a patron. It's the easiest way to avoid spam and to get good quality users and content on the platform.</p>
