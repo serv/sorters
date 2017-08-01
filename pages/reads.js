@@ -6,7 +6,9 @@ import {graphql} from 'react-apollo'
 import gql from 'graphql-tag'
 import withLoginRequired from 'staart/lib/hocs/login-required'
 import Form from 'staart/lib/components/form'
-import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
+import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc'
+import Modal from 'react-bootstrap/lib/Modal'
+import Button from 'react-bootstrap/lib/Button'
 
 export default withPage(() => (
     <Layout title="Reading list" page="reads">
@@ -168,7 +170,7 @@ class ReadsComponent extends Component {
                             />
                         </div>
                     }
-                    <h3>New Read</h3>
+                    <h3>New Book</h3>
                     <Form
                         onSubmit={() => {
                             const read = {
@@ -193,7 +195,7 @@ class ReadsComponent extends Component {
                         }}
                         state={this.state.state}
                         message={this.state.message}
-                        submitLabel="New Read"
+                        submitLabel="New Book"
                     >
                         <div className="form-group">
                             <label htmlFor="title">Title</label>
@@ -253,7 +255,8 @@ class ReadComponent extends Component {
     render() {
         const {read: {title, read, articleUrl, videoUrl}, update, remove} = this.props
         return <li style={{
-            cursor: 'pointer'
+            cursor: 'pointer',
+            clear: 'both'
         }}>
             {this.state.edit ?
                 <Form
@@ -284,13 +287,13 @@ class ReadComponent extends Component {
                             float: 'right'
                         }}
                     >
-                        <a
+                        <ShyButton
                             onClick={() => {
                                 this.setState({
                                     edit: false
                                 })
                             }}
-                        >✕</a>&nbsp;
+                        >✕</ShyButton>&nbsp;
                     </span>
                     <div className="form-group">
                         <label htmlFor='title'>Title</label>
@@ -356,18 +359,14 @@ class ReadComponent extends Component {
                         display: 'block',
                         float: 'right'
                     }}>
-                        <a
-                            onClick={() => {
-                                remove();
-                            }}
-                        >🗑</a>&nbsp;
-                        <a
+                        <DeleteModal onDelete={remove}/>&nbsp;
+                        <ShyButton
                             onClick={() => {
                                 this.setState({
                                     edit: true
                                 })
                             }}
-                        >✎</a>
+                        >✎</ShyButton>
                     </span>
                 </span>
             }
@@ -377,3 +376,52 @@ class ReadComponent extends Component {
 const Read = compose(
     SortableElement
 )(ReadComponent)
+
+const ShyButton = (props) => (
+    <a style={{
+        fontSize: '140%'
+    }} {...props}/>
+)
+
+class DeleteModal extends Component {
+    constructor() {
+        super()
+        this.state = {}
+    }
+    render() {
+        const {onDelete} = this.props
+        return <span>
+            <ShyButton onClick={() => this.setState({
+                open: true
+            })}>
+                🗑
+            </ShyButton>
+            <Modal show={this.state.open} onHide={() => this.setState({
+                open: false
+            })}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Delete book?</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <p>A deleted book can't be recovered.</p>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button
+                        onClick={() => this.setState({
+                            open: false
+                        })}
+                    >Cancel</Button>
+                    <Button
+                        bsStyle="danger"
+                        onClick={() => {
+                            onDelete()
+                            this.setState({
+                                open: false
+                            })
+                        }}
+                    >Delete</Button>
+                </Modal.Footer>
+            </Modal>
+        </span>
+    }
+}
