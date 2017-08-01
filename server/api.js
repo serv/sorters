@@ -28,8 +28,6 @@ const start = async (app, settings) => {
     const db = await MongoClient.connect(settings.mongoUrl)
 
     const Users = db.collection('users')
-    const Posts = db.collection('posts')
-    const Comments = db.collection('comments')
 
     const typeDefs = [`
         type User {
@@ -61,24 +59,6 @@ const start = async (app, settings) => {
             articleUrl: String
             videoUrl: String
         }
-        type Post {
-            _id: ID!
-            authorId: ID!
-            title: String
-            content: String
-
-            author: User
-            comments: [Comment]!
-        }
-        type Comment {
-            _id: ID!
-            postId: ID!
-            authorId: ID
-            content: String
-
-            author: User
-            post: Post
-        }
         input ProfileInput {
             name: String
             about: String
@@ -106,17 +86,12 @@ const start = async (app, settings) => {
             user(_id: ID!): User
             userByUsername(username: String!): User
             users: [User]
-            post(_id: ID!): Post
-            posts: [Post]
-            comment(_id: ID!): Comment
         }
         type Mutation {
             updateProfile(profile: ProfileInput): User
             updateReading(reading: String): User
             updateReads(reads: [ReadInput]!): User
             createRead(read: NewReadInput!): User
-            createPost(title: String, content: String): Post
-            createComment(postId: ID!, content: String): Comment
         }
 
         schema {
@@ -132,15 +107,6 @@ const start = async (app, settings) => {
                     return null
                 }
                 return prepare(await Users.findOne(ObjectId(userId)));
-            },
-            post: async (root, {_id}) => {
-                return prepare(await Posts.findOne(ObjectId(_id)))
-            },
-            posts: async (root, args, context) => {
-                return (await Posts.find({}).toArray()).map(prepare)
-            },
-            comment: async (root, {_id}) => {
-                return prepare(await Comments.findOne(ObjectId(_id)))
             },
             users: async (root, args, context) => {
                 return (await Users.find({
@@ -165,16 +131,6 @@ const start = async (app, settings) => {
                     const email = user.local.email
                     return crypto.createHash('md5').update(email).digest("hex")
                 }
-            }
-        },
-        Post: {
-            comments: async ({_id}) => {
-                return (await Comments.find({postId: _id}).toArray()).map(prepare)
-            }
-        },
-        Comment: {
-            post: async ({postId}) => {
-                return prepare(await Posts.findOne(ObjectId(postId)))
             }
         },
         Mutation: {
@@ -229,22 +185,6 @@ const start = async (app, settings) => {
                     }
                 });
                 return prepare(await Users.findOne(ObjectId(userId)));
-            },
-            createPost: async (root, args, {userId}, info) => {
-                if (!userId) {
-                    throw new Error('User not logged in.')
-                }
-                args.authorId = userId
-                const _id = (await Posts.insertOne(args)).insertedId
-                return prepare(await Posts.findOne(ObjectId(_id)))
-            },
-            createComment: async (root, args, {userId}) => {
-                if (!userId) {
-                    throw new Error('User not logged in.')
-                }
-                args.authorId = userId
-                const _id = (await Comments.insertOne(args)).insertedId
-                return prepare(await Comments.findOne(ObjectId(_id)))
             },
         },
     }
