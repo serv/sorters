@@ -36,18 +36,20 @@ const UsersComponent = ({data: {loading, users}}) => (
         <p>Loading...</p>
     :
         <div className="row">
-            {users.map(({local: {username}, emailHash, profile}) => {
+            {users.map(({local: {username}, emailHash, profile}, key) => {
                 const {name, about} = profile || {}
                 const {teaser, cut} = teaserAndInfo(about, 140, 150, 160)
+                const even = key % 2 === 0
                 
                 return <div key={username} className="col-xs-12 col-md-6" style={{
-                    display: 'flex'
+                    display: 'flex',
+                    marginBottom: '24px',
+                    clear: even && 'both'
                 }}>
                     <div>
                         <a href={`/u/${username}`}>
                             <Gravatar md5={emailHash || username} size={100} style={{
                                 marginRight: '24px',
-                                marginBottom: '24px'
                             }}/>
                         </a> 
                     </div>
