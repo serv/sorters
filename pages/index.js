@@ -41,6 +41,16 @@ export default withPage((props) => {
               <p>Share your progress as you clean your room and learn to read, write and speak, all the while rescuing your father from the underworld.</p>
               <p><a className="btn btn-default" href="/register" role="button">Register &raquo;</a></p>
             </div>
+            <div className="col-md-4">
+              <h2>Free and open source</h2>
+              <p>You can use this platform freely. If you are a coder you can even contribute to its development on GitHub.</p>
+              <p><a className="btn btn-default" href="https://github.com/nmaro/sorters" role="button" target="_blank">Source code &raquo;</a></p>
+            </div>
+            <div className="col-md-4">
+              <h2>Support on Patreon</h2>
+              <p>Become a supporter and discuss the development of Sorters Club on Patreon.</p>
+              <p><a className="btn btn-default" href="https://github.com/nmaro/sorters" role="button" target="_blank">Support &raquo;</a></p>
+            </div>
           </div>
         </div>
     </Layout>  
