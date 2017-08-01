@@ -17,7 +17,6 @@ export default withPage(() => (
 const ReadsQuery = gql`
     query {
         me {
-            active
             local {
                 username
             }
@@ -65,7 +64,6 @@ class ReadsComponent extends Component {
             createRead,
             updateReading
         } = this.props
-        const active = me && me.active
         const username = me && me.local && me.local.username
         const {reading} = (me && me.profile) || {}
         const reads = (me && me.reads && me.reads.map(({
@@ -89,7 +87,7 @@ class ReadsComponent extends Component {
                 <span>Loading...</span>
             :
                 <div>
-                    {username && active && reads.length > 0 &&
+                    {username && reads.length > 0 &&
                         <p>Your public reading list can be found at <a href={`/u/${username}`}>/u/{username}</a>.</p>
                     }
                     <h2>Description</h2>

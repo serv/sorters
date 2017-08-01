@@ -34,7 +34,6 @@ const start = async (app, settings) => {
     const typeDefs = [`
         type User {
             _id: ID!
-            active: Boolean
             local: UserLocal
             emailHash: String
             profile: Profile
@@ -118,7 +117,6 @@ const start = async (app, settings) => {
             createRead(read: NewReadInput!): User
             createPost(title: String, content: String): Post
             createComment(postId: ID!, content: String): Comment
-            activateProfile(code: String): Boolean
         }
 
         schema {
@@ -146,7 +144,6 @@ const start = async (app, settings) => {
             },
             users: async (root, args, context) => {
                 return (await Users.find({
-                    active: true,
                     'local.username': {
                         $exists: true
                     }
@@ -158,7 +155,6 @@ const start = async (app, settings) => {
             },
             userByUsername: async (root, {username}, {userId}) => {
                 return prepare(await Users.findOne({
-                    active: true,
                     'local.username': username
                 }))
             }
@@ -182,21 +178,6 @@ const start = async (app, settings) => {
             }
         },
         Mutation: {
-            activateProfile: async (root, {code}, {userId}, info) => {
-                if (!userId) {
-                    throw new Error('User not logged in.')
-                }
-                if (code !== 'DBKUZ8FY') {
-                    throw new Error('Invalid code.')
-                }
-                await Users.update({
-                    _id: ObjectId(userId)
-                }, {
-                    $set: {
-                        active: true
-                    }
-                });
-            },
             updateProfile: async (root, {profile}, {userId}, info) => {
                 if (!userId) {
                     throw new Error('User not logged in.')

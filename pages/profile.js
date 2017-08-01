@@ -83,7 +83,6 @@ const profileFields = [
 const ProfileQuery = gql`
     query {
         me {
-            active
             local {
                 username
             }
@@ -116,7 +115,6 @@ class ProfileFormComponent extends Component {
     }
     render() {
         const {profile: {loading, me, refetch}, updateProfile} = this.props
-        const active = me && me.active
         const username = me && me.local && me.local.username
         const profile = (me && me.profile) || {}
         return <div>
@@ -124,86 +122,81 @@ class ProfileFormComponent extends Component {
                 <span>Loading...</span>
             :
                 <div>
-                    {username && active &&
-                        <p>Your profile is active! It can be found at <a href={`/u/${username}`}>/u/{username}</a>.</p>
-                    }
-                    {!username &&
+                    {username ?
+                        <p>Your profile is live at <a href={`/u/${username}`}>/u/{username}</a>.</p>
+                    :
                         <div>
                             <h2>Username</h2>
                             <p>To activate your profile set a username in your <a href="/account">account page</a>.</p>
                         </div>
                     }
-                    {active ?
-                        <div>
-                            <h2>Edit Profile</h2>
-                            <Form
-                                onSubmit={() => {
-                                    const profile = {}
-                                    profileFields.forEach(({name, type}) => {
-                                        let value = this[name].value
-                                        switch (type) {
-                                            case 'url':
-                                                if (value && !/^https?:\/\/.+/.test(value)) {
-                                                    value = 'http://' + value
-                                                }
-                                        }
-                                        profile[name] = value
-                                    })
-                                    updateProfile({
-                                        variables: {
-                                            profile
-                                        }
-                                    })
-                                    .then(() => {
-                                        this.setState({
-                                            state: 'success',
-                                            message: 'Profile updated!'
-                                        })
-                                    })
-                                    .catch(e => {
-                                        this.setState({
-                                            state: 'error',
-                                            message: e.message
-                                        })
-                                    })
-                                }}
-                                state={this.state.state}
-                                message={this.state.message}
-                                submitLabel="Save profile"
-                            >
-                                {profileFields.map(({name, label, type}) => (
-                                    <div key={name} className="form-group">
-                                        <label htmlFor={name}>{label}</label>
-                                        {(() => {
-                                            switch (type) {
-                                                case 'text':
-                                                    return <textarea
-                                                        className="form-control"
-                                                        rows="4"
-                                                        ref={ref => {
-                                                            this[name] = ref
-                                                        }}
-                                                        defaultValue={profile[name]}
-                                                    />
-                                                default:
-                                                    return <input
-                                                        type="text"
-                                                        className="form-control"
-                                                        id={name}
-                                                        ref={ref => {
-                                                            this[name] = ref
-                                                        }}
-                                                        defaultValue={profile[name]}
-                                                    />
+                    <div>
+                        <h2>Edit Profile</h2>
+                        <Form
+                            onSubmit={() => {
+                                const profile = {}
+                                profileFields.forEach(({name, type}) => {
+                                    let value = this[name].value
+                                    switch (type) {
+                                        case 'url':
+                                            if (value && !/^https?:\/\/.+/.test(value)) {
+                                                value = 'http://' + value
                                             }
-                                        })()}
-                                    </div>
-                                ))}
-                            </Form>
-                        </div>
-                    :
-                        <Activate onActivate={refetch}/>
-                    }
+                                    }
+                                    profile[name] = value
+                                })
+                                updateProfile({
+                                    variables: {
+                                        profile
+                                    }
+                                })
+                                .then(() => {
+                                    this.setState({
+                                        state: 'success',
+                                        message: 'Profile updated!'
+                                    })
+                                })
+                                .catch(e => {
+                                    this.setState({
+                                        state: 'error',
+                                        message: e.message
+                                    })
+                                })
+                            }}
+                            state={this.state.state}
+                            message={this.state.message}
+                            submitLabel="Save profile"
+                        >
+                            {profileFields.map(({name, label, type}) => (
+                                <div key={name} className="form-group">
+                                    <label htmlFor={name}>{label}</label>
+                                    {(() => {
+                                        switch (type) {
+                                            case 'text':
+                                                return <textarea
+                                                    className="form-control"
+                                                    rows="4"
+                                                    ref={ref => {
+                                                        this[name] = ref
+                                                    }}
+                                                    defaultValue={profile[name]}
+                                                />
+                                            default:
+                                                return <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    id={name}
+                                                    ref={ref => {
+                                                        this[name] = ref
+                                                    }}
+                                                    defaultValue={profile[name]}
+                                                />
+                                        }
+                                    })()}
+                                </div>
+                            ))}
+                        </Form>
+                    </div>
                 </div>
             }
         </div>
@@ -217,59 +210,3 @@ const ProfileForm = compose(
         name: 'updateProfile'
     })
 )(ProfileFormComponent)
-
-const ActivateProfileQuery = gql`
-    mutation($code: String!) {
-        activateProfile(code: $code)
-    }
-`
-class ActivateComponent extends Component {
-    constructor() {
-        super()
-        this.state = {}
-    }
-    render() {
-        const {mutate, onActivate} = this.props
-        return <div>
-            <h2>Activate</h2>
-            <p>To activate your profile enter the Patron code.</p>
-            <p>Not a patron yet? For now only patrons can create a profile. You can become a patron and get your code <a href="https://www.patreon.com/nickredmark">on Patreon</a>.</p>
-            <Form
-                state={this.state.state}
-                message={this.state.message}
-                onSubmit={() => {
-                    const code = this.code.value
-                    mutate({
-                        variables: {
-                            code
-                        }
-                    })
-                        .then(onActivate)
-                        .catch(e => {
-                            this.setState({
-                                state: 'error',
-                                message: e.message
-                            })
-                        })
-                }}
-                submitLabel="Activate"
-            >
-                <div className="form-group">
-                    <label htmlFor="code">Patron Code</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="code"
-                        ref={ref => {
-                            this.code = ref
-                        }}
-                    />
-                </div>
-            </Form>
-        </div>
-        
-    }
-}
-const Activate = compose(
-    graphql(ActivateProfileQuery)
-)(ActivateComponent)
