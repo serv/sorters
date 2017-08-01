@@ -105,18 +105,18 @@ const UserComponent = (props) => {
         <h1>
             {name || username}
         </h1>
-        <div style={{
-            display: 'flex'
-        }}>
-            {emailHash &&
+        <div className="row">
+            <div className="col-xs-6 col-sm-3 col-md-2">
                 <Gravatar md5={emailHash || username} size={200} style={{
-                    marginRight: '24px',
                     marginBottom: '24px',
-                    width: '200px',
-                    height: '200px'
+                    width: '100%',
+                    height: 'auto',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                    display: 'block'
                 }}/>
-            }
-            <div>
+            </div>
+            <div className="col-xs-12 col-sm-9 col-md-10">
                 <p><a href={`/u/${username}`}>/u/{username}</a></p>
                 {about && 
                     <div>
@@ -124,7 +124,6 @@ const UserComponent = (props) => {
                     </div>
                 }
             </div>
-            <div style={{clear: 'both'}}/>
         </div>
         {urls.length > 0 && <div>
             <h2>Links</h2>
