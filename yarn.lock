@@ -3214,17 +3214,17 @@ ooth-client@^0.9.4:
     isomorphic-fetch "^2.2.1"
     rx "^4.1.0"
 
-ooth-local@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/ooth-local/-/ooth-local-0.9.0.tgz#8eba55d738d250e2d5eb4032742c03aeafd21b41"
+ooth-local@^0.10.2:
+  version "0.10.2"
+  resolved "https://registry.yarnpkg.com/ooth-local/-/ooth-local-0.10.2.tgz#9e7536b13d002ffdd0e3209ceaf1793698dec930"
   dependencies:
     bcrypt-nodejs "0.0.3"
     nodeify "^1.0.0"
     passport-local "^1.0.0"
 
-ooth@^0.9.3:
-  version "0.9.3"
-  resolved "https://registry.yarnpkg.com/ooth/-/ooth-0.9.3.tgz#d140eb7ba8cdf1a424d08fc98c29349ddaa12578"
+ooth@^0.10.2:
+  version "0.10.2"
+  resolved "https://registry.yarnpkg.com/ooth/-/ooth-0.10.2.tgz#4e3862b74939d8e8238ef33328643f0c8467e773"
   dependencies:
     body-parser "^1.16.0"
     cookie-parser "^1.4.3"
