@@ -160,7 +160,7 @@ const UserComponent = (props) => {
                         <li key={key}>
                             <span>{title}</span>
                             {read && <span>&nbsp;✔</span>}
-                            {(articleUrl || videoUrl) && <span>(
+                            {(articleUrl || videoUrl) && <span>&nbsp;(
                                 {articleUrl && <a href={articleUrl}>article</a>}
                                 {articleUrl && videoUrl && <span>,&nbsp;</span>}
                                 {videoUrl && <a href={videoUrl}>video</a>}

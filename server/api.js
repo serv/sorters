@@ -10,6 +10,7 @@ const cors = require('cors')
 const nodeify = require('nodeify')
 const ooth = require('./ooth')
 const crypto = require('crypto-browserify')
+const {GraphQLScalarType} = require('graphql')
 
 const prepare = (o) => {
     if (o && o._id) {
@@ -28,8 +29,11 @@ const start = async (app, settings) => {
     const db = await MongoClient.connect(settings.mongoUrl)
 
     const Users = db.collection('users')
+    const Events = db.collection('events')
 
-    const typeDefs = [`
+    const typeDefs = []
+    typeDefs.push(`
+        scalar Date
         type User {
             _id: ID!
             local: UserLocal
@@ -55,9 +59,34 @@ const start = async (app, settings) => {
         }
         type Read {
             title: String!
+            reading: Boolean
             read: Boolean
             articleUrl: String
             videoUrl: String
+        }
+
+        interface Event {
+            _id: ID!
+            userId: ID!
+            user: User!
+            type: String!
+            date: Date!
+        }
+        type UpdatedProfile implements Event {
+            _id: ID!
+            userId: ID!
+            user: User!
+            type: String!
+            date: Date!
+        }
+        type UpdatedRead implements Event {
+            _id: ID!
+            userId: ID!
+            user: User!
+            type: String!
+            date: Date!
+            title: String!
+            read: Read!
         }
         input ProfileInput {
             name: String
@@ -73,6 +102,7 @@ const start = async (app, settings) => {
         }
         input ReadInput {
             title: String!
+            reading: Boolean
             read: Boolean
             articleUrl: String
             videoUrl: String
@@ -85,7 +115,8 @@ const start = async (app, settings) => {
             me: User
             user(_id: ID!): User
             userByUsername(username: String!): User
-            users: [User]
+            users: [User!]!
+            events: [Event!]!
         }
         type Mutation {
             updateProfile(profile: ProfileInput): User
@@ -98,9 +129,25 @@ const start = async (app, settings) => {
             query: Query
             mutation: Mutation
         }
-    `];
+    `);
 
     const resolvers = {
+        Date: new GraphQLScalarType({
+            name: 'Date',
+            description: 'Date',
+            parseValue(value) {
+                return new Date(value);
+            },
+            serialize(value) {
+                return value.getTime();
+            },
+            parseLiteral(ast) {
+                if (ast.kind === Kind.INT) {
+                    return parseInt(ast.value, 10);
+                }
+                return null;
+            },
+        }),
         Query: {
             me: async (root, args, {userId}) => {
                 if (!userId) {
@@ -123,7 +170,15 @@ const start = async (app, settings) => {
                 return prepare(await Users.findOne({
                     'local.username': username
                 }))
-            }
+            },
+            events: async (root, params, context) => {
+                return (await Events.find({}, {
+                    sort: {
+                        date: -1
+                    },
+                    limit: 100,
+                }).toArray()).map(prepare)
+            },
         },
         User: {
             emailHash: async (user) => {
@@ -131,6 +186,32 @@ const start = async (app, settings) => {
                     const email = user.local.email
                     return crypto.createHash('md5').update(email).digest("hex")
                 }
+            }
+        },
+        Event: {
+            __resolveType({type}, context, info) {
+                return {
+                    'updated-profile': 'UpdatedProfile',
+                    'created-read': 'UpdatedRead',
+                    'reading-read': 'UpdatedRead',
+                    'read-read': 'UpdatedRead',
+                    'spoke-about-read': 'UpdatedRead',
+                    'wrote-about-read': 'UpdatedRead',
+                }[type]
+            },
+        },
+        UpdatedProfile: {
+            user: async ({userId}) => {
+                return prepare(await Users.findOne(ObjectId(userId)))
+            },
+        },
+        UpdatedRead: {
+            user: async ({userId}) => {
+                return prepare(await Users.findOne(ObjectId(userId)))
+            },
+            read: async ({userId, title}) => {
+                const user = await Users.findOne(ObjectId(userId))
+                return user.reads.find(r => r.title === title)
             }
         },
         Mutation: {
@@ -145,6 +226,11 @@ const start = async (app, settings) => {
                         profile
                     }
                 });
+                await Events.insert({
+                    userId,
+                    type: 'updated-profile',
+                    date: new Date(),
+                })
                 return prepare(await Users.findOne(ObjectId(userId)));
             },
             updateReading: async (root, {reading}, {userId}, info) => {
@@ -158,11 +244,64 @@ const start = async (app, settings) => {
                         'profile.reading': reading
                     }
                 });
+                await Events.insert({
+                    userId,
+                    type: 'updated-profile',
+                    date: new Date(),
+                })
                 return prepare(await Users.findOne(ObjectId(userId)));
             },
             updateReads: async (root, {reads}, {userId}, info) => {
                 if (!userId) {
                     throw new Error('User not logged in.')
+                }
+                const user = await Users.findOne(ObjectId(userId))
+                const userReads = user.reads || []
+                for (const read of reads) {
+                    const title = read.title
+                    const oldRead = userReads.find(r => r.title === read.title)
+                    console.log(read, oldRead)
+                    if (!oldRead) {
+                        await Events.insert({
+                            userId,
+                            type: 'created-read',
+                            title,
+                            date: new Date(),
+                        })
+                    } else {
+                        if (!oldRead.reading && read.reading) {
+                            await Events.insert({
+                                userId,
+                                type: 'reading-read',
+                                title,
+                                date: new Date(),
+                            })
+                        }
+                        if (!oldRead.read && read.read) {
+                            await Events.insert({
+                                userId,
+                                type: 'read-read',
+                                title,
+                                date: new Date(),
+                            })
+                        }
+                        if (!oldRead.articleUrl && read.articleUrl) {
+                            await Events.insert({
+                                userId,
+                                type: 'wrote-about-read',
+                                title,
+                                date: new Date(),
+                            })
+                        }
+                        if (!oldRead.videoUrl && read.videoUrl) {
+                            await Events.insert({
+                                userId,
+                                type: 'spoke-about-read',
+                                title,
+                                date: new Date(),
+                            })
+                        }
+                    }
                 }
                 await Users.update({
                     _id: ObjectId(userId)
@@ -184,6 +323,12 @@ const start = async (app, settings) => {
                         reads: read
                     }
                 });
+                await Events.insert({
+                    userId,
+                    type: 'created-read',
+                    date: new Date(),
+                    title: read.title,
+                })
                 return prepare(await Users.findOne(ObjectId(userId)));
             },
         },

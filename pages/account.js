@@ -4,9 +4,8 @@ import Account from 'staart/lib/components/account'
 
 export default withPage(() => (
     <Layout title="Account" page="account">
-	<div className="container">
+    	<div className="container">
             <Account/>
         </div>
     </Layout>
 ))
-

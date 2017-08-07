@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@types/async@^2.0.31":
+"@types/async@2.0.40", "@types/async@^2.0.31":
   version "2.0.40"
   resolved "https://registry.yarnpkg.com/@types/async/-/async-2.0.40.tgz#ac02de68e66c004a61b7cb16df8b1db3a254cca9"
 
@@ -19,7 +19,7 @@
     "@types/express-serve-static-core" "*"
     "@types/serve-static" "*"
 
-"@types/graphql@^0.9.0", "@types/graphql@^0.9.1":
+"@types/graphql@0.9.4", "@types/graphql@^0.9.0", "@types/graphql@^0.9.1", "@types/graphql@~0.9.0":
   version "0.9.4"
   resolved "https://registry.yarnpkg.com/@types/graphql/-/graphql-0.9.4.tgz#cdeb6bcbef9b6c584374b81aa7f48ecf3da404fa"
 
@@ -41,6 +41,10 @@
   dependencies:
     "@types/express-serve-static-core" "*"
     "@types/mime" "*"
+
+"@types/zen-observable@^0.5.1":
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/@types/zen-observable/-/zen-observable-0.5.2.tgz#d84e54a0e16d2b4404e0795ae493a39a3902bdd8"
 
 abab@^1.0.3:
   version "1.0.3"
@@ -149,6 +153,21 @@ apollo-client@^1.4.0:
     "@types/graphql" "^0.9.0"
     "@types/isomorphic-fetch" "0.0.34"
 
+apollo-client@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/apollo-client/-/apollo-client-1.9.0.tgz#bbc47c5e2bd7df9e6eff022c7759a83d8e2f2eb2"
+  dependencies:
+    apollo-link-core "^0.2.0"
+    graphql "^0.10.0"
+    graphql-anywhere "^3.0.1"
+    graphql-tag "^2.0.0"
+    redux "^3.4.0"
+    symbol-observable "^1.0.2"
+    whatwg-fetch "^2.0.0"
+  optionalDependencies:
+    "@types/async" "2.0.40"
+    "@types/graphql" "0.9.4"
+
 apollo-client@^1.9.0-0:
   version "1.9.0-0"
   resolved "https://registry.yarnpkg.com/apollo-client/-/apollo-client-1.9.0-0.tgz#4dc835d89bab577458d6522809eb05b007408cc9"
@@ -164,25 +183,36 @@ apollo-client@^1.9.0-0:
     "@types/graphql" "^0.9.0"
     "@types/isomorphic-fetch" "0.0.34"
 
+apollo-link-core@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/apollo-link-core/-/apollo-link-core-0.2.0.tgz#8c937bc05adef4e223b831b6368bc531711fb6cf"
+  dependencies:
+    graphql "^0.10.3"
+    graphql-tag "^2.4.2"
+    zen-observable-ts "^0.1.0"
+  optionalDependencies:
+    "@types/graphql" "~0.9.0"
+    "@types/zen-observable" "^0.5.1"
+
 apollo-server-core@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/apollo-server-core/-/apollo-server-core-1.0.2.tgz#6860a6b5680c42c8727153c524eefc84fb91e500"
   optionalDependencies:
     "@types/graphql" "^0.9.0"
 
-apollo-server-express@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/apollo-server-express/-/apollo-server-express-1.0.2.tgz#99a85d9145453bd6980239f8ab21aa1255698b2a"
+apollo-server-express@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/apollo-server-express/-/apollo-server-express-1.0.5.tgz#4475684462a9f530f1d2630112ed45295e98dcf1"
   dependencies:
     apollo-server-core "^1.0.2"
-    apollo-server-module-graphiql "^1.0.2"
+    apollo-server-module-graphiql "^1.0.5"
   optionalDependencies:
     "@types/express" "^4.0.35"
     "@types/graphql" "^0.9.1"
 
-apollo-server-module-graphiql@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/apollo-server-module-graphiql/-/apollo-server-module-graphiql-1.0.2.tgz#cf5746821a96415a36cb418239bb66c7c5d0ff32"
+apollo-server-module-graphiql@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/apollo-server-module-graphiql/-/apollo-server-module-graphiql-1.0.5.tgz#31639acb1dc4bd7e2edb334cf619f84ebff600a6"
 
 aproba@^1.0.3:
   version "1.1.2"
@@ -2104,13 +2134,13 @@ graphql-anywhere@^3.0.0, graphql-anywhere@^3.0.1:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/graphql-anywhere/-/graphql-anywhere-3.1.0.tgz#3ea0d8e8646b5cee68035016a9a7557c15c21e96"
 
-graphql-server-express@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/graphql-server-express/-/graphql-server-express-1.0.2.tgz#6c18ac6f9997ad121018de306286a3d712ae6726"
+graphql-server-express@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/graphql-server-express/-/graphql-server-express-1.0.5.tgz#4714e85eecde986dcf38eb3cde6816b9ceba94c4"
   dependencies:
-    apollo-server-express "^1.0.2"
+    apollo-server-express "^1.0.5"
 
-graphql-tag@^2.0.0:
+graphql-tag@^2.0.0, graphql-tag@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.4.2.tgz#6a63297d8522d03a2b72d26f1b239aab343840cd"
 
@@ -2124,7 +2154,7 @@ graphql-tools@^1.1.0:
   optionalDependencies:
     "@types/graphql" "^0.9.0"
 
-graphql@^0.10.0:
+graphql@^0.10.0, graphql@^0.10.3:
   version "0.10.5"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.10.5.tgz#c9be17ca2bdfdbd134077ffd9bbaa48b8becd298"
   dependencies:
@@ -3178,9 +3208,9 @@ once@^1.3.0, once@^1.3.3:
   dependencies:
     wrappy "1"
 
-ooth-client-react-next-apollo@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/ooth-client-react-next-apollo/-/ooth-client-react-next-apollo-0.9.0.tgz#31e110bcf9e5e66c78207465378f8b2b58c8e1d2"
+ooth-client-react-next-apollo@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/ooth-client-react-next-apollo/-/ooth-client-react-next-apollo-0.11.0.tgz#3d6da22aff5a0182120cad4e33a0d1cc63cec6bc"
   dependencies:
     apollo-client "^1.9.0-0"
     react "^15.6.1"
@@ -3635,6 +3665,22 @@ rc@^1.1.7:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
+
+react-apollo@^1.4.10:
+  version "1.4.10"
+  resolved "https://registry.yarnpkg.com/react-apollo/-/react-apollo-1.4.10.tgz#a3c77b120402245ea9d3a518118237c2a314a3a1"
+  dependencies:
+    apollo-client "^1.4.0"
+    graphql-anywhere "^3.0.0"
+    graphql-tag "^2.0.0"
+    hoist-non-react-statics "^2.2.0"
+    invariant "^2.2.1"
+    lodash.flatten "^4.2.0"
+    lodash.isequal "^4.1.1"
+    lodash.isobject "^3.0.2"
+    lodash.pick "^4.4.0"
+    object-assign "^4.0.1"
+    prop-types "^15.5.8"
 
 react-apollo@^1.4.4:
   version "1.4.4"
@@ -4744,3 +4790,7 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
+
+zen-observable-ts@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/zen-observable-ts/-/zen-observable-ts-0.1.0.tgz#3b06d1520daa7f3a02980c5288baa2f052c35a62"

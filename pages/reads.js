@@ -24,6 +24,7 @@ const ReadsQuery = gql`
             }
             reads {
                 title
+                reading
                 read
                 articleUrl
                 videoUrl
@@ -70,11 +71,13 @@ class ReadsComponent extends Component {
         const {reading} = (me && me.profile) || {}
         const reads = (me && me.reads && me.reads.map(({
                 title,
+                reading,
                 read,
                 articleUrl,
                 videoUrl,
             }) => ({
                 title,
+                reading,
                 read,
                 articleUrl,
                 videoUrl,
@@ -116,7 +119,7 @@ class ReadsComponent extends Component {
                         state={this.state.readingState}
                         message={this.state.readingMessage}
                         submitLabel="Save"
-                    >  
+                    >
                         <div className="form-group">
                             <label htmlFor="reading">Description</label>
                             <textarea
@@ -253,7 +256,8 @@ class ReadComponent extends Component {
         this.state = {}
     }
     render() {
-        const {read: {title, read, articleUrl, videoUrl}, update, remove} = this.props
+        const {read: {title, reading, read, articleUrl, videoUrl}, update, remove} = this.props
+        const readingStatus = read ? 'read' : (reading ? 'reading' : 'not')
         return <li style={{
             cursor: 'pointer',
             clear: 'both'
@@ -261,9 +265,11 @@ class ReadComponent extends Component {
             {this.state.edit ?
                 <Form
                     onSubmit={() => {
+                        let readingStatus = ['read', 'reading', 'not'].find(value => this.readingStatus.radios[value].checked) || 'not'
                         const read = {
                             title: this.title.value,
-                            read: this.read.checked,
+                            reading: readingStatus === 'reading',
+                            read: readingStatus === 'read',
                             articleUrl: this.articleUrl.value,
                             videoUrl: this.videoUrl.value
                         }
@@ -307,20 +313,25 @@ class ReadComponent extends Component {
                             }}
                         />
                     </div>
-                    <div className="checkbox">
-                        <label>
-                            <input
-                                type="checkbox"
-                                id="read"
-                                defaultChecked={read}
-                                ref={ref => {
-                                    this.read = ref
-                                }}
-                            />
-                            &nbsp;
-                            Read
-                        </label>
-                    </div>
+                    <RadioButtons
+                        ref={ref => {
+                            this.readingStatus = ref
+                        }}
+                        id="reading-status"
+                        label="Reading status"
+                        defaultValue={readingStatus}
+                        values={{
+                            not: {
+                                label: 'Not reading',
+                            },
+                            reading: {
+                                label: 'Reading',
+                            },
+                            read: {
+                                label: 'Read',
+                            },
+                        }}
+                    />
                     <div className="form-group">
                         <label htmlFor="article-url">Article URL</label>
                         <input
@@ -350,7 +361,7 @@ class ReadComponent extends Component {
                 <span>
                     <span>{title}</span>
                     {read && <span>&nbsp;✔</span>}
-                    {(articleUrl || videoUrl) && <span>(
+                    {(articleUrl || videoUrl) && <span>&nbsp;(
                         {articleUrl && <a href={articleUrl}>article</a>}
                         {articleUrl && videoUrl && <span>,&nbsp;</span>}
                         {videoUrl && <a href={videoUrl}>video</a>}
@@ -376,6 +387,37 @@ class ReadComponent extends Component {
 const Read = compose(
     SortableElement
 )(ReadComponent)
+
+class RadioButtons extends Component {
+    constructor() {
+        super()
+        this.radios = {}
+    }
+    render() {
+        return <div className="form-group">
+            <label>{this.props.label}</label>
+            {Object.keys(this.props.values).map(key => {
+                const value = this.props.values[key]
+                return <div className="radio" key={key}>
+                    <label>
+                        <input
+                            type="radio"
+                            id={this.props.id}
+                            name={this.props.id}
+                            value={key}
+                            defaultChecked={key === this.props.defaultValue}
+                            ref={ref => {
+                                this.radios[key] = ref
+                            }}
+                        />
+                        &nbsp;
+                        {value.label}
+                    </label>
+                </div>
+            })}
+        </div>
+    }
+}
 
 const ShyButton = (props) => (
     <a style={{
