@@ -176,7 +176,7 @@ const start = async (app, settings) => {
                     sort: {
                         date: -1
                     },
-                    limit: 100,
+                    limit: 200,
                 }).toArray()).map(prepare)
             },
         },
