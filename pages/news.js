@@ -45,43 +45,58 @@ const digestEvents = (events) => {
 }
 
 const integrateEvent = (integrated, event) => {
-    if (event.date > integrated.date) {
-        integrated.date = event.date
-    }
     switch (event.type) {
         case 'updated-profile':
             integrated.updatedProfile = true
             break
         case 'created-read':
+            if (!event.read) {
+                return;
+            }
             if (!integrated.createdReads) {
                 integrated.createdReads = {}
             }
             integrated.createdReads[event.read.title] = event.read
             break
         case 'reading-read':
+            if (!event.read) {
+                return;
+            }
             if (!integrated.readingReads) {
                 integrated.readingReads = {}
             }
             integrated.readingReads[event.read.title] = event.read
             break
         case 'read-read':
+            if (!event.read) {
+                return;
+            }
             if (!integrated.readReads) {
                 integrated.readReads = {}
             }
             integrated.readReads[event.read.title] = event.read
             break
         case 'wrote-about-read':
+            if (!event.read) {
+                return;
+            }
             if (!integrated.wroteAboutReads) {
                 integrated.wroteAboutReads = {}
             }
             integrated.wroteAboutReads[event.read.title] = event.read
             break
         case 'spoke-about-read':
+            if (!event.read) {
+                return;
+            }
             if (!integrated.spokeAboutReads) {
                 integrated.spokeAboutReads = {}
             }
             integrated.spokeAboutReads[event.read.title] = event.read
             break
+    }
+    if (event.date > integrated.date) {
+        integrated.date = event.date
     }
 }
 

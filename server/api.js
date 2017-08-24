@@ -86,7 +86,7 @@ const start = async (app, settings) => {
             type: String!
             date: Date!
             title: String!
-            read: Read!
+            read: Read
         }
         input ProfileInput {
             name: String
@@ -260,7 +260,6 @@ const start = async (app, settings) => {
                 for (const read of reads) {
                     const title = read.title
                     const oldRead = userReads.find(r => r.title === read.title)
-                    console.log(read, oldRead)
                     if (!oldRead) {
                         await Events.insert({
                             userId,
