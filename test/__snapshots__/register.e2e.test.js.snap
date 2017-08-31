@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`register displays 1`] = `
-"<div data-reactroot=\\"\\" data-reactid=\\"1\\" data-react-checksum=\\"1156377142\\">
+"<div data-reactroot=\\"\\" data-reactid=\\"1\\" data-react-checksum=\\"-96085406\\">
   <div data-reactid=\\"2\\">
     <!-- react-empty: 3 -->
     <div style=\\"padding-top:50px;padding-bottom:20px;\\" data-reactid=\\"4\\">
@@ -42,39 +42,38 @@ exports[`register displays 1`] = `
     </div>
     <div style=\\"max-width:300px;margin:auto;\\" data-reactid=\\"30\\">
       <h1 data-reactid=\\"31\\">Register</h1>
-      <button id=\\"bla\\" data-reactid=\\"32\\">bla</button>
-      <form data-reactid=\\"33\\">
-        <div class=\\"form-group\\" data-reactid=\\"34\\">
-          <label for=\\"email\\" data-reactid=\\"35\\">Email</label>
-          <input type=\\"email\\" class=\\"form-control\\" id=\\"email\\" placeholder=\\"Email\\" data-reactid=\\"36\\">
+      <form data-reactid=\\"32\\">
+        <div class=\\"form-group\\" data-reactid=\\"33\\">
+          <label for=\\"email\\" data-reactid=\\"34\\">Email</label>
+          <input type=\\"email\\" class=\\"form-control\\" id=\\"email\\" placeholder=\\"Email\\" data-reactid=\\"35\\">
         </div>
-        <div class=\\"form-group\\" data-reactid=\\"37\\">
-          <label for=\\"password\\" data-reactid=\\"38\\">Password</label>
-          <input type=\\"password\\" class=\\"form-control\\" id=\\"password\\" placeholder=\\"******\\" data-reactid=\\"39\\">
+        <div class=\\"form-group\\" data-reactid=\\"36\\">
+          <label for=\\"password\\" data-reactid=\\"37\\">Password</label>
+          <input type=\\"password\\" class=\\"form-control\\" id=\\"password\\" placeholder=\\"******\\" data-reactid=\\"38\\">
         </div>
-        <div class=\\"form-group\\" data-reactid=\\"40\\">
-          <button type=\\"submit\\" class=\\"btn btn-primary btn-block\\" data-reactid=\\"41\\">Register</button>
+        <div class=\\"form-group\\" data-reactid=\\"39\\">
+          <button type=\\"submit\\" class=\\"btn btn-primary btn-block\\" data-reactid=\\"40\\">Register</button>
         </div>
       </form>
-      <p data-reactid=\\"42\\">
-        <!-- react-text: 43 -->Already have an account?
+      <p data-reactid=\\"41\\">
+        <!-- react-text: 42 -->Already have an account?
         <!-- /react-text -->
-        <a href=\\"/login\\" data-reactid=\\"44\\">Log in</a>
-        <!-- react-text: 45 -->.
+        <a href=\\"/login\\" data-reactid=\\"43\\">Log in</a>
+        <!-- react-text: 44 -->.
         <!-- /react-text -->
       </p>
     </div>
-    <footer data-reactid=\\"46\\">
-      <div class=\\"container\\" data-reactid=\\"47\\">
-        <hr data-reactid=\\"48\\">
-        <p data-reactid=\\"49\\">
-          <!-- react-text: 50 -->Brought to you with &#x2764; by
+    <footer data-reactid=\\"45\\">
+      <div class=\\"container\\" data-reactid=\\"46\\">
+        <hr data-reactid=\\"47\\">
+        <p data-reactid=\\"48\\">
+          <!-- react-text: 49 -->Brought to you with &#x2764; by
           <!-- /react-text -->
-          <a href=\\"/about\\" data-reactid=\\"51\\">Nick Redmark</a>
-          <!-- react-text: 52 -->. Support and discuss the development of this platform on
+          <a href=\\"/about\\" data-reactid=\\"50\\">Nick Redmark</a>
+          <!-- react-text: 51 -->. Support and discuss the development of this platform on
           <!-- /react-text -->
-          <a href=\\"https://www.patreon.com/nickredmark\\" target=\\"_blank\\" data-reactid=\\"53\\">Patreon</a>
-          <!-- react-text: 54 -->.
+          <a href=\\"https://www.patreon.com/nickredmark\\" target=\\"_blank\\" data-reactid=\\"52\\">Patreon</a>
+          <!-- react-text: 53 -->.
           <!-- /react-text -->
         </p>
       </div>
