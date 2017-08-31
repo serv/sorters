@@ -211,7 +211,9 @@ const start = async (app, settings) => {
             },
             read: async ({userId, title}) => {
                 const user = await Users.findOne(ObjectId(userId))
-                return user.reads.find(r => r.title === title)
+                if (user.reads) {
+                    return user.reads.find(r => r.title === title)
+                }
             }
         },
         Mutation: {

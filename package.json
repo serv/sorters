@@ -4,10 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run test:unit",
+    "test:unit": "jest --testMatch '**/*.unit.test.js'",
+    "test:e2e": "jest --testMatch '**/*.e2e.test.js' --runInBand",
     "dev": "node --harmony-async-await index.js",
+    "clean": "del .next",
+    "prebuild": "npm run clean",
     "build": "next build",
     "start": "export NODE_ENV=prod && node --harmony-async-await index.js",
+    "start:test": "export NODE_ENV=prod && export MONGO_URL=mongodb://localhost:27017/sorters_test && node --harmony-async-await index.js",
     "linked-modules": "find node_modules/ -maxdepth 1 -type l -ls | grep -o -E \"[^/]+$\"",
     "save-linked-modules": "npm run -s linked-modules > .linked_modules",
     "link-modules": "cat .linked_modules | xargs yarn link",
@@ -51,5 +56,17 @@
     "react-sortable-hoc": "^0.6.6",
     "redux": "^3.7.2",
     "staart": "^0.4.3"
+  },
+  "devDependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "del-cli": "^1.1.0",
+    "enzyme": "^2.9.1",
+    "enzyme-to-json": "^1.5.1",
+    "jest": "^20.0.4",
+    "phantom": "^4.0.5",
+    "phantomjs-prebuilt": "^2.1.15",
+    "pretty": "^2.0.0",
+    "react-test-renderer": "^15.6.1",
+    "wd": "^1.4.0"
   }
 }

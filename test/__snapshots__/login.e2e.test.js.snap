@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`login displays 1`] = `
+"<div data-reactroot=\\"\\" data-reactid=\\"1\\" data-react-checksum=\\"-130877813\\">
+  <div data-reactid=\\"2\\">
+    <!-- react-empty: 3 -->
+    <div style=\\"padding-top:50px;padding-bottom:20px;\\" data-reactid=\\"4\\">
+      <nav class=\\"navbar navbar-inverse navbar-fixed-top\\" data-reactid=\\"5\\">
+        <div class=\\"container\\" data-reactid=\\"6\\">
+          <div class=\\"navbar-header\\" data-reactid=\\"7\\">
+            <button type=\\"button\\" class=\\"navbar-toggle collapsed\\" data-toggle=\\"collapse\\" data-target=\\"#navbar\\" aria-expanded=\\"false\\" aria-controls=\\"navbar\\" data-reactid=\\"8\\"><span class=\\"sr-only\\" data-reactid=\\"9\\">Toggle navigation</span><span class=\\"icon-bar\\" data-reactid=\\"10\\"></span><span class=\\"icon-bar\\" data-reactid=\\"11\\"></span><span class=\\"icon-bar\\" data-reactid=\\"12\\"></span></button>
+            <a class=\\"navbar-brand\\"
+              href=\\"/\\" data-reactid=\\"13\\">Sorters Club</a>
+          </div>
+          <div id=\\"navbar\\" class=\\"collapse navbar-collapse\\" data-reactid=\\"14\\">
+            <ul class=\\"nav navbar-nav navbar-right\\" data-reactid=\\"15\\">
+              <li class=\\"false\\" data-reactid=\\"16\\">
+                <a href=\\"/\\" data-reactid=\\"17\\">Home</a>
+              </li>
+              <li class=\\"false\\" data-reactid=\\"18\\">
+                <a href=\\"/about\\" data-reactid=\\"19\\">About</a>
+              </li>
+              <li class=\\"false\\" data-reactid=\\"20\\">
+                <a href=\\"/news\\" data-reactid=\\"21\\">News</a>
+              </li>
+              <li class=\\"false\\" data-reactid=\\"22\\">
+                <a href=\\"/users\\" data-reactid=\\"23\\">Sorters</a>
+              </li>
+              <li class=\\"false\\" data-reactid=\\"24\\">
+                <a href=\\"/dashboard\\" data-reactid=\\"25\\">Dashboard</a>
+              </li>
+              <li class=\\"active\\" data-reactid=\\"26\\">
+                <a href=\\"/login\\" data-reactid=\\"27\\">Log in</a>
+              </li>
+              <li class=\\"false\\" data-reactid=\\"28\\">
+                <a href=\\"/register\\" data-reactid=\\"29\\">Register</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div style=\\"max-width:300px;margin:auto;\\" data-reactid=\\"30\\">
+      <h1 data-reactid=\\"31\\">Log in</h1>
+      <form data-reactid=\\"32\\">
+        <div class=\\"form-group\\" data-reactid=\\"33\\">
+          <label for=\\"username\\" data-reactid=\\"34\\">Username or Email</label>
+          <input type=\\"string\\" class=\\"form-control\\" id=\\"username\\" placeholder=\\"Username\\" data-reactid=\\"35\\">
+        </div>
+        <div class=\\"form-group\\" data-reactid=\\"36\\">
+          <label for=\\"password\\" data-reactid=\\"37\\">Password</label>
+          <input type=\\"password\\" class=\\"form-control\\" id=\\"password\\" placeholder=\\"******\\" data-reactid=\\"38\\">
+          <a href=\\"/forgot-password\\" data-reactid=\\"39\\">Forgot your password?</a>
+        </div>
+        <div class=\\"form-group\\" data-reactid=\\"40\\">
+          <button type=\\"submit\\" class=\\"btn btn-primary btn-block\\" data-reactid=\\"41\\">Log in</button>
+        </div>
+      </form>
+      <p data-reactid=\\"42\\">
+        <!-- react-text: 43 -->New user?
+        <!-- /react-text -->
+        <a href=\\"/register\\" data-reactid=\\"44\\">register</a>
+        <!-- react-text: 45 -->.
+        <!-- /react-text -->
+      </p>
+    </div>
+    <footer data-reactid=\\"46\\">
+      <div class=\\"container\\" data-reactid=\\"47\\">
+        <hr data-reactid=\\"48\\">
+        <p data-reactid=\\"49\\">
+          <!-- react-text: 50 -->Brought to you with &#x2764; by
+          <!-- /react-text -->
+          <a href=\\"/about\\" data-reactid=\\"51\\">Nick Redmark</a>
+          <!-- react-text: 52 -->. Support and discuss the development of this platform on
+          <!-- /react-text -->
+          <a href=\\"https://www.patreon.com/nickredmark\\" target=\\"_blank\\" data-reactid=\\"53\\">Patreon</a>
+          <!-- react-text: 54 -->.
+          <!-- /react-text -->
+        </p>
+      </div>
+    </footer>
+  </div>
+</div>"
+`;

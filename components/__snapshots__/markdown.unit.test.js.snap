@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`markdown renders 1`] = `
+<div
+  className="markdown"
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "<h3>title</h3>
+    ",
+    }
+  }
+/>
+`;

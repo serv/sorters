@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`layout displays title and page 1`] = `
+<getContext(getContext(getContext(withState(StatelessLayout))))
+  footerMessage={
+    <p>
+      Brought to you with ❤ by 
+      <a
+        href="/about"
+      >
+        Nick Redmark
+      </a>
+      . Support and discuss the development of this platform on 
+      <a
+        href="https://www.patreon.com/nickredmark"
+        target="_blank"
+      >
+        Patreon
+      </a>
+      .
+    </p>
+  }
+  menu={
+    Array [
+      Object {
+        "label": "Home",
+        "name": "home",
+        "url": "/",
+      },
+      Object {
+        "label": "About",
+        "name": "about",
+        "url": "/about",
+      },
+      Object {
+        "label": "News",
+        "name": "news",
+        "url": "/news",
+      },
+      Object {
+        "label": "Sorters",
+        "name": "users",
+        "url": "/users",
+      },
+      Object {
+        "label": "Dashboard",
+        "name": "dashboard",
+        "url": "/dashboard",
+      },
+    ]
+  }
+  page="home"
+  siteName="Sorters Club"
+  title="Sort yourself out!"
+  userMenu={
+    Array [
+      Object {
+        "label": "Profile",
+        "name": "profile",
+        "url": "/profile",
+      },
+      Object {
+        "label": "Reading List",
+        "name": "reads",
+        "url": "/reads",
+      },
+      Object {
+        "label": "Account",
+        "name": "account",
+        "url": "/account",
+      },
+      Object {
+        "label": "Log out",
+        "name": "logout",
+        "url": "/logout",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`layout shallow-renders 1`] = `
+<getContext(getContext(getContext(withState(StatelessLayout))))
+  footerMessage={
+    <p>
+      Brought to you with ❤ by 
+      <a
+        href="/about"
+      >
+        Nick Redmark
+      </a>
+      . Support and discuss the development of this platform on 
+      <a
+        href="https://www.patreon.com/nickredmark"
+        target="_blank"
+      >
+        Patreon
+      </a>
+      .
+    </p>
+  }
+  menu={
+    Array [
+      Object {
+        "label": "Home",
+        "name": "home",
+        "url": "/",
+      },
+      Object {
+        "label": "About",
+        "name": "about",
+        "url": "/about",
+      },
+      Object {
+        "label": "News",
+        "name": "news",
+        "url": "/news",
+      },
+      Object {
+        "label": "Sorters",
+        "name": "users",
+        "url": "/users",
+      },
+      Object {
+        "label": "Dashboard",
+        "name": "dashboard",
+        "url": "/dashboard",
+      },
+    ]
+  }
+  siteName="Sorters Club"
+  userMenu={
+    Array [
+      Object {
+        "label": "Profile",
+        "name": "profile",
+        "url": "/profile",
+      },
+      Object {
+        "label": "Reading List",
+        "name": "reads",
+        "url": "/reads",
+      },
+      Object {
+        "label": "Account",
+        "name": "account",
+        "url": "/account",
+      },
+      Object {
+        "label": "Log out",
+        "name": "logout",
+        "url": "/logout",
+      },
+    ]
+  }
+/>
+`;

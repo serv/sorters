@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`index displays 1`] = `
+"<div data-reactroot=\\"\\" data-reactid=\\"1\\" data-react-checksum=\\"248247086\\">
+  <div data-reactid=\\"2\\">
+    <!-- react-empty: 3 -->
+    <div style=\\"padding-top:50px;padding-bottom:20px;\\" data-reactid=\\"4\\">
+      <nav class=\\"navbar navbar-inverse navbar-fixed-top\\" data-reactid=\\"5\\">
+        <div class=\\"container\\" data-reactid=\\"6\\">
+          <div class=\\"navbar-header\\" data-reactid=\\"7\\">
+            <button type=\\"button\\" class=\\"navbar-toggle collapsed\\" data-toggle=\\"collapse\\" data-target=\\"#navbar\\" aria-expanded=\\"false\\" aria-controls=\\"navbar\\" data-reactid=\\"8\\"><span class=\\"sr-only\\" data-reactid=\\"9\\">Toggle navigation</span><span class=\\"icon-bar\\" data-reactid=\\"10\\"></span><span class=\\"icon-bar\\" data-reactid=\\"11\\"></span><span class=\\"icon-bar\\" data-reactid=\\"12\\"></span></button>
+            <a class=\\"navbar-brand\\"
+              href=\\"/\\" data-reactid=\\"13\\">Sorters Club</a>
+          </div>
+          <div id=\\"navbar\\" class=\\"collapse navbar-collapse\\" data-reactid=\\"14\\">
+            <ul class=\\"nav navbar-nav navbar-right\\" data-reactid=\\"15\\">
+              <li class=\\"active\\" data-reactid=\\"16\\">
+                <a href=\\"/\\" data-reactid=\\"17\\">Home</a>
+              </li>
+              <li class=\\"false\\" data-reactid=\\"18\\">
+                <a href=\\"/about\\" data-reactid=\\"19\\">About</a>
+              </li>
+              <li class=\\"false\\" data-reactid=\\"20\\">
+                <a href=\\"/news\\" data-reactid=\\"21\\">News</a>
+              </li>
+              <li class=\\"false\\" data-reactid=\\"22\\">
+                <a href=\\"/users\\" data-reactid=\\"23\\">Sorters</a>
+              </li>
+              <li class=\\"false\\" data-reactid=\\"24\\">
+                <a href=\\"/dashboard\\" data-reactid=\\"25\\">Dashboard</a>
+              </li>
+              <li class=\\"false\\" data-reactid=\\"26\\">
+                <a href=\\"/login\\" data-reactid=\\"27\\">Log in</a>
+              </li>
+              <li class=\\"false\\" data-reactid=\\"28\\">
+                <a href=\\"/register\\" data-reactid=\\"29\\">Register</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class=\\"container\\" data-reactid=\\"30\\">
+      <div class=\\"jumbotron\\" data-reactid=\\"31\\">
+        <h1 data-reactid=\\"32\\">Sort yourself out!</h1>
+        <p data-reactid=\\"33\\">Join the community of people who like Prof. Jordan Peterson&apos;s advice and want to sort themselves out!</p>
+        <div style=\\"max-width:100%;width:480px;margin:auto;margin-bottom:24px;\\" data-reactid=\\"34\\">
+          <div style=\\"position:relative;height:0;overflow:hidden;max-width:100%;padding-bottom:56.25%;\\" data-reactid=\\"35\\">
+            <iframe frameborder=\\"0\\" src=\\"https://www.youtube.com/embed/3Z7t92_3ESE\\" style=\\"position:absolute;top:0;left:0;width:100%;height:100%;\\" data-reactid=\\"36\\"></iframe>
+          </div>
+        </div>
+        <p data-reactid=\\"37\\">
+          <a class=\\"btn btn-primary btn-lg\\" href=\\"/about\\" role=\\"button\\" data-reactid=\\"38\\">Learn more &#xBB;</a>
+        </p>
+      </div>
+      <div class=\\"row\\" data-reactid=\\"39\\">
+        <div class=\\"col-md-4\\" data-reactid=\\"40\\">
+          <h2 data-reactid=\\"41\\">Follow other sorters</h2>
+          <p data-reactid=\\"42\\">Peterson started a movement of people who want to change the world by starting from themselves. See what&apos;s happening in the sorter community.</p>
+          <p data-reactid=\\"43\\">
+            <a class=\\"btn btn-default\\" href=\\"/users\\" role=\\"button\\" data-reactid=\\"44\\">See community &#xBB;</a>
+          </p>
+        </div>
+        <div class=\\"col-md-4\\" data-reactid=\\"45\\">
+          <h2 data-reactid=\\"46\\">Share your goals</h2>
+          <p data-reactid=\\"47\\">Orient yourself towards the best possible good. Whether you have done the self-authoring suite (recommended) or not, here you can share your vision with the community.</p>
+          <p data-reactid=\\"48\\">
+            <a class=\\"btn btn-default\\" href=\\"/register\\" role=\\"button\\" data-reactid=\\"49\\">Register &#xBB;</a>
+          </p>
+        </div>
+        <div class=\\"col-md-4\\" data-reactid=\\"50\\">
+          <h2 data-reactid=\\"51\\">Read, write, speak</h2>
+          <p data-reactid=\\"52\\">Rescue your father from the belly of the beast by reading the great works of your culture. Become articulate by writing and speaking about them. Share it all in your reading list.</p>
+          <p data-reactid=\\"53\\">
+            <a class=\\"btn btn-default\\" href=\\"/u/nmaro\\" role=\\"button\\" data-reactid=\\"54\\">See an example &#xBB;</a>
+          </p>
+        </div>
+      </div>
+      <div class=\\"row\\" data-reactid=\\"55\\">
+        <div class=\\"col-md-4\\" data-reactid=\\"56\\">
+          <h2 data-reactid=\\"57\\">Begin the sorter journey</h2>
+          <p data-reactid=\\"58\\">Share your progress as you clean your room and learn to read, write and speak, all the while rescuing your father from the underworld.</p>
+          <p data-reactid=\\"59\\">
+            <a class=\\"btn btn-default\\" href=\\"/register\\" role=\\"button\\" data-reactid=\\"60\\">Register &#xBB;</a>
+          </p>
+        </div>
+        <div class=\\"col-md-4\\" data-reactid=\\"61\\">
+          <h2 data-reactid=\\"62\\">Free and open source</h2>
+          <p data-reactid=\\"63\\">You can use this platform freely. If you are a coder you can even contribute to its development on GitHub.</p>
+          <p data-reactid=\\"64\\">
+            <a class=\\"btn btn-default\\" href=\\"https://github.com/nmaro/sorters\\" role=\\"button\\" target=\\"_blank\\" data-reactid=\\"65\\">Source code &#xBB;</a>
+          </p>
+        </div>
+        <div class=\\"col-md-4\\" data-reactid=\\"66\\">
+          <h2 data-reactid=\\"67\\">Support on Patreon</h2>
+          <p data-reactid=\\"68\\">Become a supporter and discuss the development of Sorters Club on Patreon.</p>
+          <p data-reactid=\\"69\\">
+            <a class=\\"btn btn-default\\" href=\\"https://www.patreon.com/nickredmark\\" role=\\"button\\" target=\\"_blank\\" data-reactid=\\"70\\">Support &#xBB;</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <footer data-reactid=\\"71\\">
+      <div class=\\"container\\" data-reactid=\\"72\\">
+        <hr data-reactid=\\"73\\">
+        <p data-reactid=\\"74\\">
+          <!-- react-text: 75 -->Brought to you with &#x2764; by
+          <!-- /react-text -->
+          <a href=\\"/about\\" data-reactid=\\"76\\">Nick Redmark</a>
+          <!-- react-text: 77 -->. Support and discuss the development of this platform on
+          <!-- /react-text -->
+          <a href=\\"https://www.patreon.com/nickredmark\\" target=\\"_blank\\" data-reactid=\\"78\\">Patreon</a>
+          <!-- react-text: 79 -->.
+          <!-- /react-text -->
+        </p>
+      </div>
+    </footer>
+  </div>
+</div>"
+`;
