@@ -22,21 +22,6 @@ afterAll(async () => {
     await teardown({db, app, browser})
 })
 
-afterAll(async () => {
-    await db.close()
-
-    await new Promise((resolve, reject) => {
-        app.on('close', () => {
-            resolve()
-        })
-        try {
-            process.kill(-app.pid)
-        } catch (e) {
-            console.log(e)
-        }
-    })
-})
-
 describe('login', () => {
     it('displays', async () => {
         const browserPage = await browser.createPage()
