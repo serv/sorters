@@ -45,7 +45,12 @@ const DashboardComponent = ({user}) => (
               <p>See what other sorters are doing.</p>
               <p><a className="btn btn-default" href="/users" role="button">Sorters</a></p>
             </div>
-          </div>        
+            <div className="col-md-4">
+              <h2>Chat</h2>
+              <p>Chat with other sorters (a Discord channel).</p>
+              <p><a className="btn btn-default" href="https://discord.gg/6Q8v9Sm" role="button" target="_blank">Chat</a></p>
+            </div>
+          </div>
     </div>
 )
 const Dashboard = compose(
