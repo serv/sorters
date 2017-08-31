@@ -1,0 +1,182 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dashboard displays when logged 1`] = `
+Object {
+  "message": "User registered successfully.",
+}
+`;
+
+exports[`dashboard displays when logged 2`] = `
+"<div data-reactroot=\\"\\" data-reactid=\\"1\\" data-react-checksum=\\"-1169843788\\">
+  <div data-reactid=\\"2\\">
+    <!-- react-empty: 3 -->
+    <div style=\\"padding-top:50px;padding-bottom:20px;\\" data-reactid=\\"4\\">
+      <nav class=\\"navbar navbar-inverse navbar-fixed-top\\" data-reactid=\\"5\\">
+        <div class=\\"container\\" data-reactid=\\"6\\">
+          <div class=\\"navbar-header\\" data-reactid=\\"7\\">
+            <button type=\\"button\\" class=\\"navbar-toggle collapsed\\" data-toggle=\\"collapse\\" data-target=\\"#navbar\\" aria-expanded=\\"false\\" aria-controls=\\"navbar\\" data-reactid=\\"8\\"><span class=\\"sr-only\\" data-reactid=\\"9\\">Toggle navigation</span><span class=\\"icon-bar\\" data-reactid=\\"10\\"></span><span class=\\"icon-bar\\" data-reactid=\\"11\\"></span><span class=\\"icon-bar\\" data-reactid=\\"12\\"></span></button>
+            <a class=\\"navbar-brand\\"
+              href=\\"/\\" data-reactid=\\"13\\">Sorters Club</a>
+          </div>
+          <div id=\\"navbar\\" class=\\"collapse navbar-collapse\\" data-reactid=\\"14\\">
+            <ul class=\\"nav navbar-nav navbar-right\\" data-reactid=\\"15\\">
+              <li class=\\"false\\" data-reactid=\\"16\\">
+                <a href=\\"/\\" data-reactid=\\"17\\">Home</a>
+              </li>
+              <li class=\\"false\\" data-reactid=\\"18\\">
+                <a href=\\"/about\\" data-reactid=\\"19\\">About</a>
+              </li>
+              <li class=\\"false\\" data-reactid=\\"20\\">
+                <a href=\\"/news\\" data-reactid=\\"21\\">News</a>
+              </li>
+              <li class=\\"false\\" data-reactid=\\"22\\">
+                <a href=\\"/users\\" data-reactid=\\"23\\">Sorters</a>
+              </li>
+              <li class=\\"active\\" data-reactid=\\"24\\">
+                <a href=\\"/dashboard\\" data-reactid=\\"25\\">Dashboard</a>
+              </li>
+              <li class=\\"dropdownfalse\\" data-reactid=\\"26\\">
+                <a href=\\"#\\" class=\\"dropdown-toggle\\" data-toggle=\\"dropdown\\" role=\\"button\\" aria-haspopup=\\"true\\" aria-expanded=\\"true\\" data-reactid=\\"27\\">
+                  <!-- react-text: 28 -->Hello,
+                  <!-- /react-text -->
+                  <!-- react-text: 29 -->example@example.com
+                  <!-- /react-text -->
+                  <!-- react-text: 30 -->
+                  <!-- /react-text --><span class=\\"caret\\" data-reactid=\\"31\\"></span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class=\\"container\\" data-reactid=\\"32\\">
+      <h1 data-reactid=\\"33\\">Dashboard</h1>
+      <p data-reactid=\\"34\\">Thank you for joining sorters club! This is your dashboard.</p>
+      <p data-reactid=\\"35\\">As the platform develops, you will find more features here.</p>
+      <p data-reactid=\\"36\\">
+        <!-- react-text: 37 -->If there is a feature you wish you can discuss this with us on
+        <!-- /react-text -->
+        <a href=\\"https://www.patreon.com/nickredmark\\" target=\\"_blank\\" data-reactid=\\"38\\">Patreon</a>
+        <!-- react-text: 39 -->.
+        <!-- /react-text -->
+      </p>
+      <div class=\\"row\\" data-reactid=\\"40\\">
+        <div class=\\"col-md-4\\" data-reactid=\\"41\\">
+          <h2 data-reactid=\\"42\\">Profile</h2>
+          <p data-reactid=\\"43\\">Edit your public profile that can be seen by others.</p>
+          <p data-reactid=\\"44\\">
+            <a class=\\"btn btn-default\\" href=\\"/profile\\" role=\\"button\\" data-reactid=\\"45\\">Manage profile</a>
+          </p>
+        </div>
+        <div class=\\"col-md-4\\" data-reactid=\\"46\\">
+          <h2 data-reactid=\\"47\\">Account</h2>
+          <p data-reactid=\\"48\\">Set your username, password etc.</p>
+          <p data-reactid=\\"49\\">
+            <a class=\\"btn btn-default\\" href=\\"/account\\" role=\\"button\\" data-reactid=\\"50\\">Manage account</a>
+          </p>
+        </div>
+        <div class=\\"col-md-4\\" data-reactid=\\"51\\">
+          <h2 data-reactid=\\"52\\">Reading list</h2>
+          <p data-reactid=\\"53\\">Create a list of things you read and intend to read, with links to your articles and videos.</p>
+          <p data-reactid=\\"54\\">
+            <a class=\\"btn btn-default\\" href=\\"/reads\\" role=\\"button\\" data-reactid=\\"55\\">Manage reading list</a>
+          </p>
+        </div>
+      </div>
+      <div class=\\"row\\" data-reactid=\\"56\\">
+        <div class=\\"col-md-4\\" data-reactid=\\"57\\">
+          <h2 data-reactid=\\"58\\">Sorters</h2>
+          <p data-reactid=\\"59\\">See what other sorters are doing.</p>
+          <p data-reactid=\\"60\\">
+            <a class=\\"btn btn-default\\" href=\\"/users\\" role=\\"button\\" data-reactid=\\"61\\">Sorters</a>
+          </p>
+        </div>
+        <div class=\\"col-md-4\\" data-reactid=\\"62\\">
+          <h2 data-reactid=\\"63\\">Chat</h2>
+          <p data-reactid=\\"64\\">Chat with other sorters (a Discord channel).</p>
+          <p data-reactid=\\"65\\">
+            <a class=\\"btn btn-default\\" href=\\"https://discord.gg/6Q8v9Sm\\" role=\\"button\\" target=\\"_blank\\" data-reactid=\\"66\\">Chat</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <footer data-reactid=\\"67\\">
+      <div class=\\"container\\" data-reactid=\\"68\\">
+        <hr data-reactid=\\"69\\">
+        <p data-reactid=\\"70\\">
+          <!-- react-text: 71 -->Brought to you with &#x2764; by
+          <!-- /react-text -->
+          <a href=\\"/about\\" data-reactid=\\"72\\">Nick Redmark</a>
+          <!-- react-text: 73 -->. Support and discuss the development of this platform on
+          <!-- /react-text -->
+          <a href=\\"https://www.patreon.com/nickredmark\\" target=\\"_blank\\" data-reactid=\\"74\\">Patreon</a>
+          <!-- react-text: 75 -->.
+          <!-- /react-text -->
+        </p>
+      </div>
+    </footer>
+  </div>
+</div>"
+`;
+
+exports[`dashboard redirects when unlogged 1`] = `
+"<div data-reactroot=\\"\\" data-reactid=\\"1\\" data-react-checksum=\\"709617274\\">
+  <div data-reactid=\\"2\\">
+    <!-- react-empty: 3 -->
+    <div style=\\"padding-top:50px;padding-bottom:20px;\\" data-reactid=\\"4\\">
+      <nav class=\\"navbar navbar-inverse navbar-fixed-top\\" data-reactid=\\"5\\">
+        <div class=\\"container\\" data-reactid=\\"6\\">
+          <div class=\\"navbar-header\\" data-reactid=\\"7\\">
+            <button type=\\"button\\" class=\\"navbar-toggle collapsed\\" data-toggle=\\"collapse\\" data-target=\\"#navbar\\" aria-expanded=\\"false\\" aria-controls=\\"navbar\\" data-reactid=\\"8\\"><span class=\\"sr-only\\" data-reactid=\\"9\\">Toggle navigation</span><span class=\\"icon-bar\\" data-reactid=\\"10\\"></span><span class=\\"icon-bar\\" data-reactid=\\"11\\"></span><span class=\\"icon-bar\\" data-reactid=\\"12\\"></span></button>
+            <a class=\\"navbar-brand\\"
+              href=\\"/\\" data-reactid=\\"13\\">Sorters Club</a>
+          </div>
+          <div id=\\"navbar\\" class=\\"collapse navbar-collapse\\" data-reactid=\\"14\\">
+            <ul class=\\"nav navbar-nav navbar-right\\" data-reactid=\\"15\\">
+              <li class=\\"false\\" data-reactid=\\"16\\">
+                <a href=\\"/\\" data-reactid=\\"17\\">Home</a>
+              </li>
+              <li class=\\"false\\" data-reactid=\\"18\\">
+                <a href=\\"/about\\" data-reactid=\\"19\\">About</a>
+              </li>
+              <li class=\\"false\\" data-reactid=\\"20\\">
+                <a href=\\"/news\\" data-reactid=\\"21\\">News</a>
+              </li>
+              <li class=\\"false\\" data-reactid=\\"22\\">
+                <a href=\\"/users\\" data-reactid=\\"23\\">Sorters</a>
+              </li>
+              <li class=\\"active\\" data-reactid=\\"24\\">
+                <a href=\\"/dashboard\\" data-reactid=\\"25\\">Dashboard</a>
+              </li>
+              <li class=\\"false\\" data-reactid=\\"26\\">
+                <a href=\\"/login\\" data-reactid=\\"27\\">Log in</a>
+              </li>
+              <li class=\\"false\\" data-reactid=\\"28\\">
+                <a href=\\"/register\\" data-reactid=\\"29\\">Register</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class=\\"container\\" data-reactid=\\"30\\">
+      <p data-reactid=\\"31\\">You need to log in to see this page.</p>
+    </div>
+    <footer data-reactid=\\"32\\">
+      <div class=\\"container\\" data-reactid=\\"33\\">
+        <hr data-reactid=\\"34\\">
+        <p data-reactid=\\"35\\">
+          <!-- react-text: 36 -->Brought to you with &#x2764; by
+          <!-- /react-text -->
+          <a href=\\"/about\\" data-reactid=\\"37\\">Nick Redmark</a>
+          <!-- react-text: 38 -->. Support and discuss the development of this platform on
+          <!-- /react-text -->
+          <a href=\\"https://www.patreon.com/nickredmark\\" target=\\"_blank\\" data-reactid=\\"39\\">Patreon</a>
+          <!-- react-text: 40 -->.
+          <!-- /react-text -->
+        </p>
+      </div>
+    </footer>
+  </div>
+</div>"
+`;
