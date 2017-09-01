@@ -13,5 +13,13 @@ module.exports = {
     },
     mail: {
         from: "noreply@sorters.com"
-    }
+    },
+    facebook: {
+        clientID: 'XXX',
+        clientSecret: 'XXX',
+    },
+    google: {
+        clientID: 'XXX',
+        clientSecret: 'XXX',
+    },
 }

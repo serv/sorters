@@ -3765,6 +3765,14 @@ jsonpointer@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/jsonpointer/-/jsonpointer-4.0.1.tgz#4fd92cb34e0e9db3c89c8622ecf51f9b978c6cb9"
 
+jsonwebtoken@^5.0.0:
+  version "5.7.0"
+  resolved "https://registry.yarnpkg.com/jsonwebtoken/-/jsonwebtoken-5.7.0.tgz#1c90f9a86ce5b748f5f979c12b70402b4afcddb4"
+  dependencies:
+    jws "^3.0.0"
+    ms "^0.7.1"
+    xtend "^4.0.1"
+
 jsonwebtoken@^7.0.0, jsonwebtoken@^7.2.1:
   version "7.4.1"
   resolved "https://registry.yarnpkg.com/jsonwebtoken/-/jsonwebtoken-7.4.1.tgz#7ca324f5215f8be039cd35a6c45bb8cb74a448fb"
@@ -3793,7 +3801,7 @@ jwa@^1.1.4:
     ecdsa-sig-formatter "1.0.9"
     safe-buffer "^5.0.1"
 
-jws@^3.1.4:
+jws@^3.0.0, jws@^3.1.4:
   version "3.1.4"
   resolved "https://registry.yarnpkg.com/jws/-/jws-3.1.4.tgz#f9e8b9338e8a847277d6444b1464f61880e050a2"
   dependencies:
@@ -4282,7 +4290,7 @@ ms@0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.1.tgz#9cd13c03adbff25b65effde7ce864ee952017098"
 
-ms@0.7.3:
+ms@0.7.3, ms@^0.7.1:
   version "0.7.3"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.3.tgz#708155a5e44e33f5fd0fc53e81d0d40a91be1fff"
 
@@ -4448,7 +4456,7 @@ node-pre-gyp@^0.6.36:
     tar "^2.2.1"
     tar-pack "^3.4.0"
 
-nodeify@^1.0.0:
+nodeify@^1.0.0, nodeify@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/nodeify/-/nodeify-1.0.1.tgz#64ab69a7bdbaf03ce107b4f0335c87c0b9e91b1d"
   dependencies:
@@ -4531,6 +4539,10 @@ number-is-nan@^1.0.0:
 oauth-sign@~0.8.1:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.8.2.tgz#46a6ab7f0aead8deae9ec0565780b7d4efeb9d43"
+
+oauth@0.9.x:
+  version "0.9.15"
+  resolved "https://registry.yarnpkg.com/oauth/-/oauth-0.9.15.tgz#bd1fefaf686c96b75475aed5196412ff60cfb9c1"
 
 object-assign@^4, object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1:
   version "4.1.1"
@@ -4633,17 +4645,31 @@ ooth-client@^0.9.4:
     isomorphic-fetch "^2.2.1"
     rx "^4.1.0"
 
-ooth-local@^0.10.2:
-  version "0.10.2"
-  resolved "https://registry.yarnpkg.com/ooth-local/-/ooth-local-0.10.2.tgz#9e7536b13d002ffdd0e3209ceaf1793698dec930"
+ooth-facebook@^0.12.2:
+  version "0.12.2"
+  resolved "https://registry.yarnpkg.com/ooth-facebook/-/ooth-facebook-0.12.2.tgz#0d1f680a9c76928ee25bde32a7239c600a1d8e17"
+  dependencies:
+    nodeify "^1.0.1"
+    passport-facebook-token "^3.3.0"
+
+ooth-google@^0.12.2:
+  version "0.12.2"
+  resolved "https://registry.yarnpkg.com/ooth-google/-/ooth-google-0.12.2.tgz#4ee40b60fbea684cadba97d876f7a3093c2763a1"
+  dependencies:
+    nodeify "^1.0.1"
+    passport-google-id-token "^0.4.2"
+
+ooth-local@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/ooth-local/-/ooth-local-0.12.0.tgz#2544f0d156d1f3338428fc4171109a4fe1987223"
   dependencies:
     bcrypt-nodejs "0.0.3"
     nodeify "^1.0.0"
     passport-local "^1.0.0"
 
-ooth@^0.10.2:
-  version "0.10.2"
-  resolved "https://registry.yarnpkg.com/ooth/-/ooth-0.10.2.tgz#4e3862b74939d8e8238ef33328643f0c8467e773"
+ooth@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/ooth/-/ooth-0.12.0.tgz#bae45713ccaff97bfd886ac24cda93ee0323c510"
   dependencies:
     body-parser "^1.16.0"
     cookie-parser "^1.4.3"
@@ -4802,6 +4828,20 @@ parseurl@~1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/parseurl/-/parseurl-1.3.1.tgz#c8ab8c9223ba34888aa64a297b28853bec18da56"
 
+passport-facebook-token@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/passport-facebook-token/-/passport-facebook-token-3.3.0.tgz#7404ca6fdd3790e11060cc60c562b21f0d0481ee"
+  dependencies:
+    passport-oauth "1.0.0"
+
+passport-google-id-token@^0.4.2:
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/passport-google-id-token/-/passport-google-id-token-0.4.3.tgz#be61159e4170f8a4c1bce45135058b9669b26b06"
+  dependencies:
+    jsonwebtoken "^5.0.0"
+    passport-strategy "^1.0.0"
+    request "2.81.x"
+
 passport-jwt@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/passport-jwt/-/passport-jwt-2.2.1.tgz#0e004c94071319d673d9d9bcfd1574a868011527"
@@ -4814,6 +4854,30 @@ passport-local@^1.0.0:
   resolved "https://registry.yarnpkg.com/passport-local/-/passport-local-1.0.0.tgz#1fe63268c92e75606626437e3b906662c15ba6ee"
   dependencies:
     passport-strategy "1.x.x"
+
+passport-oauth1@1.x.x:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/passport-oauth1/-/passport-oauth1-1.1.0.tgz#a7de988a211f9cf4687377130ea74df32730c918"
+  dependencies:
+    oauth "0.9.x"
+    passport-strategy "1.x.x"
+    utils-merge "1.x.x"
+
+passport-oauth2@1.x.x:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/passport-oauth2/-/passport-oauth2-1.4.0.tgz#f62f81583cbe12609be7ce6f160b9395a27b86ad"
+  dependencies:
+    oauth "0.9.x"
+    passport-strategy "1.x.x"
+    uid2 "0.0.x"
+    utils-merge "1.x.x"
+
+passport-oauth@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/passport-oauth/-/passport-oauth-1.0.0.tgz#90aff63387540f02089af28cdad39ea7f80d77df"
+  dependencies:
+    passport-oauth1 "1.x.x"
+    passport-oauth2 "1.x.x"
 
 passport-strategy@1.x.x, passport-strategy@^1.0.0:
   version "1.0.0"
@@ -5502,7 +5566,7 @@ request@2.79.0:
     tunnel-agent "~0.4.1"
     uuid "^3.0.0"
 
-request@^2.79.0, request@^2.81.0, request@~2.81.0:
+request@2.81.x, request@^2.79.0, request@^2.81.0, request@~2.81.0:
   version "2.81.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.81.0.tgz#c6928946a0e06c5f8d6f8a9333469ffda46298a0"
   dependencies:
@@ -5610,6 +5674,10 @@ sane@~1.6.0:
 sax@^1.2.1:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
+
+scriptjs@^2.5.8:
+  version "2.5.8"
+  resolved "https://registry.yarnpkg.com/scriptjs/-/scriptjs-2.5.8.tgz#d0c43955c2e6bad33b6e4edf7b53b8965aa7ca5f"
 
 semver-diff@^2.0.0:
   version "2.1.0"
@@ -5827,14 +5895,15 @@ sshpk@^1.7.0:
     jsbn "~0.1.0"
     tweetnacl "~0.14.0"
 
-staart@^0.4.3:
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/staart/-/staart-0.4.3.tgz#dd8a1ea1936f5e9935fa380209e4063d735a339a"
+staart@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/staart/-/staart-0.5.0.tgz#29d5799df933eb358b7afd961d42d56d8c81b8a2"
   dependencies:
     ooth-client-react "^0.8.0"
     prop-types "^15.5.10"
     react "^15.6.1"
     recompose "^0.23.5"
+    scriptjs "^2.5.8"
 
 stack-trace@0.0.x:
   version "0.0.10"
@@ -6192,6 +6261,10 @@ uid-safe@~2.1.4:
   dependencies:
     random-bytes "~1.0.0"
 
+uid2@0.0.x:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/uid2/-/uid2-0.0.3.tgz#483126e11774df2f71b8b639dcd799c376162b82"
+
 ultron@~1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/ultron/-/ultron-1.1.0.tgz#b07a2e6a541a815fc6a34ccd4533baec307ca864"
@@ -6267,7 +6340,7 @@ util@0.10.3, util@^0.10.3:
   dependencies:
     inherits "2.0.1"
 
-utils-merge@1.0.0:
+utils-merge@1.0.0, utils-merge@1.x.x:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.0.tgz#0294fb922bb9375153541c4f7096231f287c8af8"
 
