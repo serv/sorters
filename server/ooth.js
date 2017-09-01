@@ -21,61 +21,61 @@ module.exports = async function start(app, settings) {
             sendMail({
                 from: settings.mail.from,
                 to: email,
-                subject: 'Welcome',
-                body: `Thank you for joining!`,
-                html: `Thank you for joining!`,
+                subject: 'Welcome to Sorters Club',
+                body: `Thank you for joining Sorters Club!`,
+                html: `Thank you for joining Sorters Club!`,
             })
             sendMail({
                 from: settings.mail.from,
                 to: email,
-                subject: 'Verify your email address',
-                body: `Please verify your email by opening the following url: /verify-email?token=${verificationToken}.`,
-                html: `Please verify your email by opening the following url: /verify-email?token=${verificationToken}.`,
+                subject: 'Verify your Sorters Club email address',
+                body: `Please verify your Sorters Club email by opening the following url: ${settings.url}/verify-email?token=${verificationToken}.`,
+                html: `Please verify your Sorters Club email by opening the following url: ${settings.url}/verify-email?token=${verificationToken}.`,
             })
         },
         onGenerateVerificationToken({email, verificationToken}) {
             sendMail({
                 from: settings.mail.from,
                 to: email,
-                subject: 'Verify your email address',
-                body: `Please verify your email by opening the following url: /verify-email?token=${verificationToken}.`,
-                html: `Please verify your email by opening the following url: /verify-email?token=${verificationToken}.`,
+                subject: 'Verify your Sorters Club email address',
+                body: `Please verify your Sorters Club email by opening the following url: ${settings.url}/verify-email?token=${verificationToken}.`,
+                html: `Please verify your Sorters Club email by opening the following url: ${settings.url}/verify-email?token=${verificationToken}.`,
             })
         },
         onVerify({email}) {
             sendMail({
                 from: settings.mail.from,
                 to: email,
-                subject: 'Address verified',
-                body: `Your email address has been verified.`,
-                html: `Your email address has been verified.`,
+                subject: 'Sorters Club Address verified',
+                body: `Your Sorters Club email address has been verified.`,
+                html: `Your Sorters Club email address has been verified.`,
             })
         },
         onForgotPassword({email, passwordResetToken}) {
             sendMail({
                 from: settings.mail.from,
                 to: email,
-                subject: 'Reset password',
-                body: `Reset your password on the following page: /reset-password?token=${passwordResetToken}.`,
-                html: `Reset your password on the following page: /reset-password?token=${passwordResetToken}.`,
+                subject: 'Reset Sorters Club password',
+                body: `Reset your password for Sorters Club on the following page: ${settings.url}/reset-password?token=${passwordResetToken}.`,
+                html: `Reset your password for Sorters Club on the following page: ${settings.url}/reset-password?token=${passwordResetToken}.`,
             })
         },
         onResetPassword({email}) {
             sendMail({
                 from: settings.mail.from,
                 to: email,
-                subject: 'Password has been reset',
-                body: 'Your password has been reset.',
-                html: 'Your password has been reset.'
+                subject: 'Sorters Club Password Reset',
+                body: 'Your password for Sorters Club has been reset.',
+                html: 'Your password for Sorters Club has been reset.'
             })
         },
         onChangePassword({email}) {
             sendMail({
                 from: settings.mail.from,
                 to: email,
-                subject: 'Password has been changed',
-                body: 'Your password has been changed.',
-                html: 'Your password has been changed.'
+                subject: 'Sorters Club Password Changed',
+                body: 'Your password for Sorters Club has been changed.',
+                html: 'Your password for Sorters Club has been changed.'
             })
         }
     }))
