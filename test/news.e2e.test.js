@@ -88,6 +88,12 @@ describe('news', () => {
         })
         await Events.insertOne({
             userId: ObjectID(insertedId),
+            type: 'wrote-about-read',
+            date,
+            title: 'DeletedRead',
+        })
+        await Events.insertOne({
+            userId: ObjectID(insertedId),
             type: 'created-goal',
             date,
             title: 'TestGoal',
@@ -103,6 +109,12 @@ describe('news', () => {
             type: 'done-goal',
             date,
             title: 'TestGoal',
+        })
+        await Events.insertOne({
+            userId: ObjectID(insertedId),
+            type: 'done-goal',
+            date,
+            title: 'DeletedGoal',
         })
         const browserPage = await browser.createPage()
         const status = await browserPage.open(`http://localhost:3000/news`)

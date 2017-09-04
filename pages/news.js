@@ -44,21 +44,31 @@ const digestEvents = (events) => {
     return days
 }
 
-const EVENTS_WITH_TITLE = [
-    'created-read', 'reading-read', 'read-read', 'wrote-about-read', 'spoke-about-read',
-    'created-goal', 'doing-goal', 'done-goal'
-]
+const EVENTS_WITH_TITLE = {
+    read: ['created-read', 'reading-read', 'read-read', 'wrote-about-read', 'spoke-about-read'],
+    goal: ['created-goal', 'doing-goal', 'done-goal'],
+}
 
 const integrateEvent = (integrated, event) => {
     if (event.type === 'updated-profile') {
         integrated.updatedProfile = true
-    } else if (EVENTS_WITH_TITLE.indexOf(event.type) > -1) {
-        if (!integrated[event.type]) {
-            integrated[event.type] = {}
-        }
-        integrated[event.type][event.title] = event
     } else {
-        throw new Error(`Unknown event type: ${event.type}.`)
+        let found = false
+        for (const key of Object.keys(EVENTS_WITH_TITLE)) {
+            if (EVENTS_WITH_TITLE[key].indexOf(event.type) > -1) {
+                found = true
+                if (!event[key]) {
+                    return
+                }
+                if (!integrated[event.type]) {
+                    integrated[event.type] = {}
+                }
+                integrated[event.type][event.title] = event
+            }
+        }
+        if (!found) {
+            throw new Error(`Unknown event type: ${event.type}.`)
+        }
     }
 
     if (event.date > integrated.date) {
