@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`text utils teaserAndInfo cuts 1`] = `
+Object {
+  "cut": true,
+  "teaser": " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the...",
+}
+`;
+
+exports[`text utils teaserAndInfo doesn't cut 1`] = `
+Object {
+  "cut": false,
+  "teaser": "Lorem Ipsum is simply",
+}
+`;

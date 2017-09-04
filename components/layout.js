@@ -5,51 +5,56 @@ const menu = [
     {
         url: '/',
         name: 'home',
-        label: 'Home'
+        label: 'Home',
     },
     {
         url: '/about',
         name: 'about',
-        label: 'About'
+        label: 'About',
     },
     {
         url: '/news',
         name: 'news',
-        label: 'News'
+        label: 'News',
     },
     {
         url: '/users',
         name: 'users',
-        label: 'Sorters'
+        label: 'Sorters',
     },
     {
         url: '/dashboard',
         name: 'dashboard',
-        label: 'Dashboard'
-    }
+        label: 'Dashboard',
+    },
 ]
 
 const userMenu = [
     {
         url: '/profile',
         name: 'profile',
-        label: 'Profile'
+        label: 'Profile',
+    },
+    {
+        url: '/goals',
+        name: 'goals',
+        label: 'Goals',
     },
     {
         url: '/reads',
         name: 'reads',
-        label: 'Reading List'
+        label: 'Reading List',
     },
     {
         url: '/account',
         name: 'account',
-        label: 'Account'
+        label: 'Account',
     },
     {
         url: '/logout',
         name: 'logout',
-        label: 'Log out'
-    }
+        label: 'Log out',
+    },
 ]
 
 const siteName = 'Sorters Club'

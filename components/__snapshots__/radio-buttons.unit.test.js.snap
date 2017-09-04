@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`radio-buttons shallow-renders 1`] = `
+<div
+  className="form-group"
+>
+  <label>
+    Buttons
+  </label>
+  <div
+    className="radio"
+  >
+    <label>
+      <input
+        defaultChecked={true}
+        id="buttons"
+        name="buttons"
+        type="radio"
+        value="foo"
+      />
+       
+      Foo
+    </label>
+  </div>
+  <div
+    className="radio"
+  >
+    <label>
+      <input
+        defaultChecked={false}
+        id="buttons"
+        name="buttons"
+        type="radio"
+        value="bar"
+      />
+       
+      Bar
+    </label>
+  </div>
+</div>
+`;

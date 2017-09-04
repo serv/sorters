@@ -40,6 +40,7 @@ const start = async (app, settings) => {
             emailHash: String
             profile: Profile
             reads: [Read]
+            goals: [Goal]
         }
         type UserLocal {
             username: String
@@ -63,6 +64,12 @@ const start = async (app, settings) => {
             read: Boolean
             articleUrl: String
             videoUrl: String
+        }
+        type Goal {
+            title: String!
+            description: String
+            doing: Boolean
+            done: Boolean
         }
 
         interface Event {
@@ -88,11 +95,19 @@ const start = async (app, settings) => {
             title: String!
             read: Read
         }
+        type UpdatedGoal implements Event {
+            _id: ID!
+            userId: ID!
+            user: User!
+            type: String!
+            date: Date!
+            title: String!
+            goal: Goal
+        }
         input ProfileInput {
             name: String
             about: String
             bio: String
-            goals: String
             website: String
             blog: String
             youtube: String
@@ -110,6 +125,15 @@ const start = async (app, settings) => {
         input NewReadInput {
             title: String!
         }
+        input GoalInput {
+            title: String!
+            description: String
+            doing: Boolean
+            done: Boolean
+        }
+        input NewGoalInput {
+            title: String!
+        }
 
         type Query {
             me: User
@@ -123,6 +147,9 @@ const start = async (app, settings) => {
             updateReading(reading: String): User
             updateReads(reads: [ReadInput]!): User
             createRead(read: NewReadInput!): User
+            updateGoalsDescription(goals: String): User
+            updateGoals(goals: [GoalInput]!): User
+            createGoal(goal: NewGoalInput!): User
         }
 
         schema {
@@ -197,6 +224,9 @@ const start = async (app, settings) => {
                     'read-read': 'UpdatedRead',
                     'spoke-about-read': 'UpdatedRead',
                     'wrote-about-read': 'UpdatedRead',
+                    'created-goal': 'UpdatedGoal',
+                    'doing-goal': 'UpdatedGoal',
+                    'done-goal': 'UpdatedGoal',
                 }[type]
             },
         },
@@ -214,7 +244,18 @@ const start = async (app, settings) => {
                 if (user.reads) {
                     return user.reads.find(r => r.title === title)
                 }
-            }
+            },
+        },
+        UpdatedGoal: {
+            user: async ({userId}) => {
+                return prepare(await Users.findOne(ObjectId(userId)))
+            },
+            goal: async ({userId, title}) => {
+                const user = await Users.findOne(ObjectId(userId))
+                if (user.goals) {
+                    return user.goals.find(r => r.title === title)
+                }
+            },
         },
         Mutation: {
             updateProfile: async (root, {profile}, {userId}, info) => {
@@ -317,18 +358,111 @@ const start = async (app, settings) => {
                 if (!userId) {
                     throw new Error('User not logged in.')
                 }
+                const user = await Users.findOne(ObjectId(userId))
+                if (user.reads) {
+                    if (user.reads.some(r => r.title === read.title)) {
+                        throw new Error('You already created this read.')
+                    }
+                }
                 await Users.update({
                     _id: ObjectId(userId)
                 }, {
                     $push: {
                         reads: read
                     }
-                });
+                })
                 await Events.insert({
                     userId,
                     type: 'created-read',
                     date: new Date(),
                     title: read.title,
+                })
+                return prepare(await Users.findOne(ObjectId(userId)));
+            },
+            updateGoalsDescription: async (root, {goals}, {userId}, info) => {
+                if (!userId) {
+                    throw new Error('User not logged in.')
+                }
+                await (Users.update({
+                    _id: ObjectId(userId)
+                }, {
+                    $set: {
+                        'profile.goals': goals
+                    }
+                }));
+                await Events.insert({
+                    userId,
+                    type: 'updated-profile',
+                    date: new Date(),
+                })
+                return prepare(await Users.findOne(ObjectId(userId)));
+            },
+            updateGoals: async (root, {goals}, {userId}, info) => {
+                if (!userId) {
+                    throw new Error('User not logged in.')
+                }
+                const user = await Users.findOne(ObjectId(userId))
+                const userGoals = user.goals || []
+                for (const goal of goals) {
+                    const title = goal.title
+                    const oldGoal = userGoals.find(g => g.title === goal.title)
+                    if (!oldGoal) {
+                        await Events.insert({
+                            userId,
+                            type: 'created-goal',
+                            title,
+                            date: new Date(),
+                        })
+                    } else {
+                        if (!oldGoal.doing && goal.doing) {
+                            await Events.insert({
+                                userId,
+                                type: 'doing-goal',
+                                title,
+                                date: new Date(),
+                            })
+                        }
+                        if (!oldGoal.done && goal.done) {
+                            await Events.insert({
+                                userId,
+                                type: 'done-goal',
+                                title,
+                                date: new Date(),
+                            })
+                        }
+                    }
+                }                
+                await Users.update({
+                    _id: ObjectId(userId)
+                }, {
+                    $set: {
+                        goals
+                    }
+                });
+                return prepare(await Users.findOne(ObjectId(userId)));
+            },
+            createGoal: async (root, {goal}, {userId}, info) => {
+                if (!userId) {
+                    throw new Error('User not logged in.')
+                }
+                const user = await Users.findOne(ObjectId(userId))
+                if (user.goals) {
+                    if (user.goals.some(g => g.title === goal.title)) {
+                        throw new Error('You already created this goal.')
+                    }
+                }
+                await Users.update({
+                    _id: ObjectId(userId)
+                }, {
+                    $push: {
+                        goals: goal
+                    }
+                })
+                await Events.insert({
+                    userId,
+                    type: 'created-goal',
+                    date: new Date(),
+                    title: goal.title,
                 })
                 return prepare(await Users.findOne(ObjectId(userId)));
             },

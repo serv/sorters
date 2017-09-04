@@ -1,13 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`dashboard displays when logged 1`] = `
-Object {
-  "message": "User registered successfully.",
-}
-`;
-
-exports[`dashboard displays when logged 2`] = `
-"<div data-reactroot=\\"\\" data-reactid=\\"1\\" data-react-checksum=\\"-1169843788\\">
+"<div data-reactroot=\\"\\" data-reactid=\\"1\\" data-react-checksum=\\"-239525825\\">
   <div data-reactid=\\"2\\">
     <!-- react-empty: 3 -->
     <div style=\\"padding-top:50px;padding-bottom:20px;\\" data-reactid=\\"4\\">
@@ -39,7 +33,7 @@ exports[`dashboard displays when logged 2`] = `
                 <a href=\\"#\\" class=\\"dropdown-toggle\\" data-toggle=\\"dropdown\\" role=\\"button\\" aria-haspopup=\\"true\\" aria-expanded=\\"true\\" data-reactid=\\"27\\">
                   <!-- react-text: 28 -->Hello,
                   <!-- /react-text -->
-                  <!-- react-text: 29 -->example@example.com
+                  <!-- react-text: 29 -->test
                   <!-- /react-text -->
                   <!-- react-text: 30 -->
                   <!-- /react-text --><span class=\\"caret\\" data-reactid=\\"31\\"></span></a>
@@ -65,52 +59,66 @@ exports[`dashboard displays when logged 2`] = `
           <h2 data-reactid=\\"42\\">Profile</h2>
           <p data-reactid=\\"43\\">Edit your public profile that can be seen by others.</p>
           <p data-reactid=\\"44\\">
-            <a class=\\"btn btn-default\\" href=\\"/profile\\" role=\\"button\\" data-reactid=\\"45\\">Manage profile</a>
+            <!-- react-text: 45 -->Your profile can be found at
+            <!-- /react-text -->
+            <a href=\\"/u/test\\" data-reactid=\\"46\\">/u/test</a>
+            <!-- react-text: 47 -->.
+            <!-- /react-text -->
+          </p>
+          <p data-reactid=\\"48\\">
+            <a class=\\"btn btn-default\\" href=\\"/profile\\" role=\\"button\\" data-reactid=\\"49\\">Manage profile</a>
           </p>
         </div>
-        <div class=\\"col-md-4\\" data-reactid=\\"46\\">
-          <h2 data-reactid=\\"47\\">Account</h2>
-          <p data-reactid=\\"48\\">Set your username, password etc.</p>
-          <p data-reactid=\\"49\\">
-            <a class=\\"btn btn-default\\" href=\\"/account\\" role=\\"button\\" data-reactid=\\"50\\">Manage account</a>
+        <div class=\\"col-md-4\\" data-reactid=\\"50\\">
+          <h2 data-reactid=\\"51\\">Goals</h2>
+          <p data-reactid=\\"52\\">Share your goals and leave updates.</p>
+          <p data-reactid=\\"53\\">
+            <a class=\\"btn btn-default\\" href=\\"/goals\\" role=\\"button\\" data-reactid=\\"54\\">Manage goals</a>
           </p>
         </div>
-        <div class=\\"col-md-4\\" data-reactid=\\"51\\">
-          <h2 data-reactid=\\"52\\">Reading list</h2>
-          <p data-reactid=\\"53\\">Create a list of things you read and intend to read, with links to your articles and videos.</p>
-          <p data-reactid=\\"54\\">
-            <a class=\\"btn btn-default\\" href=\\"/reads\\" role=\\"button\\" data-reactid=\\"55\\">Manage reading list</a>
+        <div class=\\"col-md-4\\" data-reactid=\\"55\\">
+          <h2 data-reactid=\\"56\\">Reading list</h2>
+          <p data-reactid=\\"57\\">Create a list of things you read and intend to read, with links to your articles and videos.</p>
+          <p data-reactid=\\"58\\">
+            <a class=\\"btn btn-default\\" href=\\"/reads\\" role=\\"button\\" data-reactid=\\"59\\">Manage reading list</a>
           </p>
         </div>
       </div>
-      <div class=\\"row\\" data-reactid=\\"56\\">
-        <div class=\\"col-md-4\\" data-reactid=\\"57\\">
-          <h2 data-reactid=\\"58\\">Sorters</h2>
-          <p data-reactid=\\"59\\">See what other sorters are doing.</p>
-          <p data-reactid=\\"60\\">
-            <a class=\\"btn btn-default\\" href=\\"/users\\" role=\\"button\\" data-reactid=\\"61\\">Sorters</a>
+      <div class=\\"row\\" data-reactid=\\"60\\">
+        <div class=\\"col-md-4\\" data-reactid=\\"61\\">
+          <h2 data-reactid=\\"62\\">Sorters</h2>
+          <p data-reactid=\\"63\\">See what other sorters are doing.</p>
+          <p data-reactid=\\"64\\">
+            <a class=\\"btn btn-default\\" href=\\"/users\\" role=\\"button\\" data-reactid=\\"65\\">Sorters</a>
           </p>
         </div>
-        <div class=\\"col-md-4\\" data-reactid=\\"62\\">
-          <h2 data-reactid=\\"63\\">Chat</h2>
-          <p data-reactid=\\"64\\">Chat with other sorters (a Discord channel).</p>
-          <p data-reactid=\\"65\\">
-            <a class=\\"btn btn-default\\" href=\\"https://discord.gg/6Q8v9Sm\\" role=\\"button\\" target=\\"_blank\\" data-reactid=\\"66\\">Chat</a>
+        <div class=\\"col-md-4\\" data-reactid=\\"66\\">
+          <h2 data-reactid=\\"67\\">Chat</h2>
+          <p data-reactid=\\"68\\">Chat with other sorters (a Discord channel).</p>
+          <p data-reactid=\\"69\\">
+            <a class=\\"btn btn-default\\" href=\\"https://discord.gg/6Q8v9Sm\\" role=\\"button\\" target=\\"_blank\\" data-reactid=\\"70\\">Chat</a>
+          </p>
+        </div>
+        <div class=\\"col-md-4\\" data-reactid=\\"71\\">
+          <h2 data-reactid=\\"72\\">Account</h2>
+          <p data-reactid=\\"73\\">Set your username, password etc.</p>
+          <p data-reactid=\\"74\\">
+            <a class=\\"btn btn-default\\" href=\\"/account\\" role=\\"button\\" data-reactid=\\"75\\">Manage account</a>
           </p>
         </div>
       </div>
     </div>
-    <footer data-reactid=\\"67\\">
-      <div class=\\"container\\" data-reactid=\\"68\\">
-        <hr data-reactid=\\"69\\">
-        <p data-reactid=\\"70\\">
-          <!-- react-text: 71 -->Brought to you with &#x2764; by
+    <footer data-reactid=\\"76\\">
+      <div class=\\"container\\" data-reactid=\\"77\\">
+        <hr data-reactid=\\"78\\">
+        <p data-reactid=\\"79\\">
+          <!-- react-text: 80 -->Brought to you with &#x2764; by
           <!-- /react-text -->
-          <a href=\\"/about\\" data-reactid=\\"72\\">Nick Redmark</a>
-          <!-- react-text: 73 -->. Support and discuss the development of this platform on
+          <a href=\\"/about\\" data-reactid=\\"81\\">Nick Redmark</a>
+          <!-- react-text: 82 -->. Support and discuss the development of this platform on
           <!-- /react-text -->
-          <a href=\\"https://www.patreon.com/nickredmark\\" target=\\"_blank\\" data-reactid=\\"74\\">Patreon</a>
-          <!-- react-text: 75 -->.
+          <a href=\\"https://www.patreon.com/nickredmark\\" target=\\"_blank\\" data-reactid=\\"83\\">Patreon</a>
+          <!-- react-text: 84 -->.
           <!-- /react-text -->
         </p>
       </div>

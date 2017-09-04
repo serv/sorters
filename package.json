@@ -69,6 +69,7 @@
     "phantomjs-prebuilt": "^2.1.15",
     "pretty": "^2.0.0",
     "react-test-renderer": "^15.6.1",
+    "set-cookie-parser": "^2.0.0",
     "wd": "^1.4.0"
   }
 }

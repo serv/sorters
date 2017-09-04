@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`goals displays 1`] = `
+"<div data-reactroot=\\"\\" data-reactid=\\"1\\" data-react-checksum=\\"-606402048\\">
+  <div data-reactid=\\"2\\">
+    <!-- react-empty: 3 -->
+    <div style=\\"padding-top:50px;padding-bottom:20px;\\" data-reactid=\\"4\\">
+      <nav class=\\"navbar navbar-inverse navbar-fixed-top\\" data-reactid=\\"5\\">
+        <div class=\\"container\\" data-reactid=\\"6\\">
+          <div class=\\"navbar-header\\" data-reactid=\\"7\\">
+            <button type=\\"button\\" class=\\"navbar-toggle collapsed\\" data-toggle=\\"collapse\\" data-target=\\"#navbar\\" aria-expanded=\\"false\\" aria-controls=\\"navbar\\" data-reactid=\\"8\\"><span class=\\"sr-only\\" data-reactid=\\"9\\">Toggle navigation</span><span class=\\"icon-bar\\" data-reactid=\\"10\\"></span><span class=\\"icon-bar\\" data-reactid=\\"11\\"></span><span class=\\"icon-bar\\" data-reactid=\\"12\\"></span></button>
+            <a class=\\"navbar-brand\\"
+              href=\\"/\\" data-reactid=\\"13\\">Sorters Club</a>
+          </div>
+          <div id=\\"navbar\\" class=\\"collapse navbar-collapse\\" data-reactid=\\"14\\">
+            <ul class=\\"nav navbar-nav navbar-right\\" data-reactid=\\"15\\">
+              <li class=\\"false\\" data-reactid=\\"16\\">
+                <a href=\\"/\\" data-reactid=\\"17\\">Home</a>
+              </li>
+              <li class=\\"false\\" data-reactid=\\"18\\">
+                <a href=\\"/about\\" data-reactid=\\"19\\">About</a>
+              </li>
+              <li class=\\"false\\" data-reactid=\\"20\\">
+                <a href=\\"/news\\" data-reactid=\\"21\\">News</a>
+              </li>
+              <li class=\\"false\\" data-reactid=\\"22\\">
+                <a href=\\"/users\\" data-reactid=\\"23\\">Sorters</a>
+              </li>
+              <li class=\\"false\\" data-reactid=\\"24\\">
+                <a href=\\"/dashboard\\" data-reactid=\\"25\\">Dashboard</a>
+              </li>
+              <li class=\\"dropdownfalse\\" data-reactid=\\"26\\">
+                <a href=\\"#\\" class=\\"dropdown-toggle\\" data-toggle=\\"dropdown\\" role=\\"button\\" aria-haspopup=\\"true\\" aria-expanded=\\"true\\" data-reactid=\\"27\\">
+                  <!-- react-text: 28 -->Hello,
+                  <!-- /react-text -->
+                  <!-- react-text: 29 -->test
+                  <!-- /react-text -->
+                  <!-- react-text: 30 -->
+                  <!-- /react-text --><span class=\\"caret\\" data-reactid=\\"31\\"></span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div style=\\"max-width:400px;margin:auto;\\" data-reactid=\\"32\\">
+      <h1 data-reactid=\\"33\\">Goals</h1>
+      <div data-reactid=\\"34\\">
+        <p data-reactid=\\"35\\">
+          <!-- react-text: 36 -->Your public goal list can be found at
+          <!-- /react-text -->
+          <a href=\\"/u/test\\" data-reactid=\\"37\\">
+            <!-- react-text: 38 -->/u/
+            <!-- /react-text -->
+            <!-- react-text: 39 -->test
+            <!-- /react-text -->
+          </a>
+          <!-- react-text: 40 -->.
+          <!-- /react-text -->
+        </p>
+        <h2 data-reactid=\\"41\\">Description</h2>
+        <p data-reactid=\\"42\\">Here you can describe how you chose your goals.</p>
+        <form data-reactid=\\"43\\">
+          <div class=\\"form-group\\" data-reactid=\\"44\\">
+            <label for=\\"goals-description\\" data-reactid=\\"45\\">Description</label>
+            <textarea class=\\"form-control\\" rows=\\"4\\" data-reactid=\\"46\\">Test user goals</textarea>
+          </div>
+          <div class=\\"form-group\\" data-reactid=\\"47\\">
+            <button type=\\"submit\\" class=\\"btn btn-primary btn-block\\" data-reactid=\\"48\\">Save</button>
+          </div>
+        </form>
+        <div data-reactid=\\"49\\">
+          <h2 data-reactid=\\"50\\">Your Goals</h2>
+          <ul data-reactid=\\"51\\">
+            <li style=\\"cursor:pointer;clear:both;\\" data-reactid=\\"52\\"><span data-reactid=\\"53\\"><span data-reactid=\\"54\\">Goal</span><span style=\\"display:block;float:right;\\" data-reactid=\\"55\\"><span data-reactid=\\"56\\"><a style=\\"font-size:140%;\\" data-reactid=\\"57\\">&#x1F5D1;</a><!-- react-empty: 58 --></span>
+              <!-- react-text: 59 -->&#xA0;
+              <!-- /react-text -->
+              <a style=\\"font-size:140%;\\" data-reactid=\\"60\\">&#x270E;</a>
+              </span>
+              </span>
+            </li>
+            <li style=\\"cursor:pointer;clear:both;\\" data-reactid=\\"61\\"><span data-reactid=\\"62\\"><span data-reactid=\\"63\\">Goal - doing</span><span style=\\"display:block;float:right;\\" data-reactid=\\"64\\"><span data-reactid=\\"65\\"><a style=\\"font-size:140%;\\" data-reactid=\\"66\\">&#x1F5D1;</a><!-- react-empty: 67 --></span>
+              <!-- react-text: 68 -->&#xA0;
+              <!-- /react-text -->
+              <a style=\\"font-size:140%;\\" data-reactid=\\"69\\">&#x270E;</a>
+              </span>
+              </span>
+            </li>
+            <li style=\\"cursor:pointer;clear:both;\\" data-reactid=\\"70\\"><span data-reactid=\\"71\\"><span data-reactid=\\"72\\">Goal - done</span><span data-reactid=\\"73\\">&#xA0;&#x2714;</span><span style=\\"display:block;float:right;\\" data-reactid=\\"74\\"><span data-reactid=\\"75\\"><a style=\\"font-size:140%;\\" data-reactid=\\"76\\">&#x1F5D1;</a><!-- react-empty: 77 --></span>
+              <!-- react-text: 78 -->&#xA0;
+              <!-- /react-text -->
+              <a style=\\"font-size:140%;\\" data-reactid=\\"79\\">&#x270E;</a>
+              </span>
+              </span>
+            </li>
+          </ul>
+        </div>
+        <h3 data-reactid=\\"80\\">New Goal</h3>
+        <form data-reactid=\\"81\\">
+          <div class=\\"form-group\\" data-reactid=\\"82\\">
+            <label for=\\"title\\" data-reactid=\\"83\\">Title</label>
+            <input type=\\"text\\" class=\\"form-control\\" placeholder=\\"\\" data-reactid=\\"84\\">
+          </div>
+          <div class=\\"form-group\\" data-reactid=\\"85\\">
+            <button type=\\"submit\\" class=\\"btn btn-primary btn-block\\" data-reactid=\\"86\\">New Goal</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <footer data-reactid=\\"87\\">
+      <div class=\\"container\\" data-reactid=\\"88\\">
+        <hr data-reactid=\\"89\\">
+        <p data-reactid=\\"90\\">
+          <!-- react-text: 91 -->Brought to you with &#x2764; by
+          <!-- /react-text -->
+          <a href=\\"/about\\" data-reactid=\\"92\\">Nick Redmark</a>
+          <!-- react-text: 93 -->. Support and discuss the development of this platform on
+          <!-- /react-text -->
+          <a href=\\"https://www.patreon.com/nickredmark\\" target=\\"_blank\\" data-reactid=\\"94\\">Patreon</a>
+          <!-- react-text: 95 -->.
+          <!-- /react-text -->
+        </p>
+      </div>
+    </footer>
+  </div>
+</div>"
+`;

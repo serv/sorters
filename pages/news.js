@@ -44,57 +44,23 @@ const digestEvents = (events) => {
     return days
 }
 
+const EVENTS_WITH_TITLE = [
+    'created-read', 'reading-read', 'read-read', 'wrote-about-read', 'spoke-about-read',
+    'created-goal', 'doing-goal', 'done-goal'
+]
+
 const integrateEvent = (integrated, event) => {
-    switch (event.type) {
-        case 'updated-profile':
-            integrated.updatedProfile = true
-            break
-        case 'created-read':
-            if (!event.read) {
-                return;
-            }
-            if (!integrated.createdReads) {
-                integrated.createdReads = {}
-            }
-            integrated.createdReads[event.read.title] = event.read
-            break
-        case 'reading-read':
-            if (!event.read) {
-                return;
-            }
-            if (!integrated.readingReads) {
-                integrated.readingReads = {}
-            }
-            integrated.readingReads[event.read.title] = event.read
-            break
-        case 'read-read':
-            if (!event.read) {
-                return;
-            }
-            if (!integrated.readReads) {
-                integrated.readReads = {}
-            }
-            integrated.readReads[event.read.title] = event.read
-            break
-        case 'wrote-about-read':
-            if (!event.read) {
-                return;
-            }
-            if (!integrated.wroteAboutReads) {
-                integrated.wroteAboutReads = {}
-            }
-            integrated.wroteAboutReads[event.read.title] = event.read
-            break
-        case 'spoke-about-read':
-            if (!event.read) {
-                return;
-            }
-            if (!integrated.spokeAboutReads) {
-                integrated.spokeAboutReads = {}
-            }
-            integrated.spokeAboutReads[event.read.title] = event.read
-            break
+    if (event.type === 'updated-profile') {
+        integrated.updatedProfile = true
+    } else if (EVENTS_WITH_TITLE.indexOf(event.type) > -1) {
+        if (!integrated[event.type]) {
+            integrated[event.type] = {}
+        }
+        integrated[event.type][event.title] = event
+    } else {
+        throw new Error(`Unknown event type: ${event.type}.`)
     }
+
     if (event.date > integrated.date) {
         integrated.date = event.date
     }
@@ -122,6 +88,12 @@ const NewsQuery = gql`
                     read
                     articleUrl
                     videoUrl
+                }
+            }
+            ... on UpdatedGoal {
+                title
+                goal {
+                    title
                 }
             }
         }
@@ -163,33 +135,51 @@ const NewsComponent = ({data: {loading, events}}) => {
                                 listStylePosition: 'inside',
                             }}>
                                 {event.updatedProfile && <li>Updated profile.</li>}
-                                {event.spokeAboutReads && <li>
+                                {event['done-goal'] && <li>
+                                    Achieved
+                                    {Object.keys(event['done-goal']).map((t, i) => <span key={i}>
+                                        {i ? ',' : ''}&nbsp;<em>{t}</em>
+                                        </span>)}
+                                </li>}
+                                {event['spoke-about-read'] && <li>
                                     Spoke about 
-                                    {Object.keys(event.spokeAboutReads).map((t, i) => <span key={t}>
-                                        {i ? ',' : ''}&nbsp;<a href={event.spokeAboutReads[t].videoUrl}>{t}</a>
+                                    {Object.keys(event['spoke-about-read']).map((t, i) => <span key={t}>
+                                        {i ? ',' : ''}&nbsp;<a href={event['spoke-about-read'][t].read.videoUrl}>{t}</a>
                                     </span>)}
                                 </li>}
-                                {event.wroteAboutReads && <li>
+                                {event['wrote-about-read'] && <li>
                                     Wrote about 
-                                    {Object.keys(event.wroteAboutReads).map((t, i) => <span key={t}>
-                                        {i ? ',' : ''}&nbsp;<a href={event.wroteAboutReads[t].articleUrl}>{t}</a>
+                                    {Object.keys(event['wrote-about-read']).map((t, i) => <span key={t}>
+                                        {i ? ',' : ''}&nbsp;<a href={event['wrote-about-read'][t].read.articleUrl}>{t}</a>
                                     </span>)}
                                 </li>}
-                                {event.readReads && <li>
+                                {event['read-read'] && <li>
                                     Read
-                                    {Object.keys(event.readReads).map((t, i) => <span key={t}>
+                                    {Object.keys(event['read-read']).map((t, i) => <span key={t}>
                                         {i ? ',' : ''}&nbsp;<em>{t}</em>
                                     </span>)}
                                 </li>}
-                                {event.readingReads && <li>
+                                {event['doing-goal'] && <li>
+                                    Is working on
+                                    {Object.keys(event['doing-goal']).map((t, i) => <span key={i}>
+                                        {i ? ',' : ''}&nbsp;<em>{t}</em>
+                                    </span>)}
+                                </li>}
+                                {event['reading-read'] && <li>
                                     Started reading 
-                                    {Object.keys(event.readingReads).map((t, i) => <span key={t}>
+                                    {Object.keys(event['reading-read']).map((t, i) => <span key={t}>
                                         {i ? ',' : ''}&nbsp;<em>{t}</em>
                                     </span>)}
                                 </li>}
-                                {event.createdReads && <li>
+                                {event['created-goal'] && <li>
+                                    Wants to achieve
+                                    {Object.keys(event['created-goal']).map((t, i) => <span key={i}>
+                                        {i ? ',' : ''}&nbsp;<em>{t}</em>
+                                    </span>)}
+                                </li>}
+                                {event['created-read'] && <li>
                                     Added books to reading list: 
-                                    {Object.keys(event.createdReads).map((t, i) => <span key={t}>
+                                    {Object.keys(event['created-read']).map((t, i) => <span key={t}>
                                         {i ? ',' : ''}&nbsp;<em>{t}</em>
                                     </span>)}
                                 </li>}

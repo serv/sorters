@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`shy-button shallow-renders 1`] = `
+<a
+  style={
+    Object {
+      "fontSize": "140%",
+    }
+  }
+>
+  ✎
+</a>
+`;

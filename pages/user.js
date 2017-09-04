@@ -63,9 +63,16 @@ const UserQuery = gql`
             }
             reads {
                 title
+                reading
                 read
                 articleUrl
                 videoUrl
+            }
+            goals {
+                title
+                description
+                doing
+                done
             }
         }
     }
@@ -89,6 +96,7 @@ const UserComponent = (props) => {
     const profile = user.profile || {}
     const reads = user.reads || []
     const {name, about, bio, goals, reading} = profile
+    const goalsList = user.goals || []
 
     const urls = []
     urlFields.map(({name, label}) => {
@@ -145,30 +153,40 @@ const UserComponent = (props) => {
                 <Markdown content={bio}/>
             </div>
         }
+        {(goalsList.length > 0 || goals) && <h2>Goals</h2>}
         {goals &&
-            <div>
-                <h2>Goals</h2>
-                <Markdown content={goals}/>
-            </div>
+            <Markdown content={goals}/>
         }
+        {goalsList.length > 0 &&
+            <ul>
+                {goalsList.map(({title, description, doing, done}, key) => {
+                    const goalStatus = done ? 'done' : (doing ? 'doing' : 'not')
+                    return <li key={key}>
+                        <span>{title}</span>
+                        {goalStatus === 'doing' && <span>&nbsp;⛏</span>}
+                        {goalStatus === 'done' && <span>&nbsp;✔</span>}
+                    </li>
+                })}
+            </ul>
+        }
+        {(reads.length > 0 || reading) && <h2>Reading List</h2>}
+        {reading && <Markdown content={reading}/>}
         {reads.length > 0 &&
-            <div>
-                <h2>Reading List</h2>
-                {reading && <Markdown content={reading}/>}
-                <ul>
-                    {reads.map(({title, read, articleUrl, videoUrl}, key) => (
-                        <li key={key}>
-                            <span>{title}</span>
-                            {read && <span>&nbsp;✔</span>}
+            <ul>
+                {reads.map(({title, reading, read, articleUrl, videoUrl}, key) => {
+                    const readingStatus = read ? 'read' : (reading ? 'reading' : 'not')
+                    return <li key={key}>
+                        <span>{title}</span>
+                        {readingStatus === 'read' && <span>&nbsp;✔</span>}
+                        {readingStatus === 'reading' && <span>&nbsp;👁</span>}
                             {(articleUrl || videoUrl) && <span>&nbsp;(
-                                {articleUrl && <a href={articleUrl}>article</a>}
-                                {articleUrl && videoUrl && <span>,&nbsp;</span>}
-                                {videoUrl && <a href={videoUrl}>video</a>}
-                            )</span>}
-                        </li>                   
-                    ))}
-                </ul>
-            </div>
+                            {articleUrl && <a href={articleUrl}>article</a>}
+                            {articleUrl && videoUrl && <span>,&nbsp;</span>}
+                            {videoUrl && <a href={videoUrl}>video</a>}
+                        )</span>}
+                    </li>                   
+                })}
+            </ul>
         }
     </div>
 }

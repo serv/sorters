@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`login displays 1`] = `
-"<div data-reactroot=\\"\\" data-reactid=\\"1\\" data-react-checksum=\\"-130877813\\">
+"<div data-reactroot=\\"\\" data-reactid=\\"1\\" data-react-checksum=\\"-2019944848\\">
   <div data-reactid=\\"2\\">
     <!-- react-empty: 3 -->
     <div style=\\"padding-top:50px;padding-bottom:20px;\\" data-reactid=\\"4\\">
@@ -56,25 +56,28 @@ exports[`login displays 1`] = `
           <button type=\\"submit\\" class=\\"btn btn-primary btn-block\\" data-reactid=\\"41\\">Log in</button>
         </div>
       </form>
-      <p data-reactid=\\"42\\">
-        <!-- react-text: 43 -->New user?
+      <p style=\\"text-align:center;\\" data-reactid=\\"42\\">or</p>
+      <!-- react-empty: 43 -->
+      <!-- react-empty: 44 -->
+      <p data-reactid=\\"45\\">
+        <!-- react-text: 46 -->New user?
         <!-- /react-text -->
-        <a href=\\"/register\\" data-reactid=\\"44\\">register</a>
-        <!-- react-text: 45 -->.
+        <a href=\\"/register\\" data-reactid=\\"47\\">register</a>
+        <!-- react-text: 48 -->.
         <!-- /react-text -->
       </p>
     </div>
-    <footer data-reactid=\\"46\\">
-      <div class=\\"container\\" data-reactid=\\"47\\">
-        <hr data-reactid=\\"48\\">
-        <p data-reactid=\\"49\\">
-          <!-- react-text: 50 -->Brought to you with &#x2764; by
+    <footer data-reactid=\\"49\\">
+      <div class=\\"container\\" data-reactid=\\"50\\">
+        <hr data-reactid=\\"51\\">
+        <p data-reactid=\\"52\\">
+          <!-- react-text: 53 -->Brought to you with &#x2764; by
           <!-- /react-text -->
-          <a href=\\"/about\\" data-reactid=\\"51\\">Nick Redmark</a>
-          <!-- react-text: 52 -->. Support and discuss the development of this platform on
+          <a href=\\"/about\\" data-reactid=\\"54\\">Nick Redmark</a>
+          <!-- react-text: 55 -->. Support and discuss the development of this platform on
           <!-- /react-text -->
-          <a href=\\"https://www.patreon.com/nickredmark\\" target=\\"_blank\\" data-reactid=\\"53\\">Patreon</a>
-          <!-- react-text: 54 -->.
+          <a href=\\"https://www.patreon.com/nickredmark\\" target=\\"_blank\\" data-reactid=\\"56\\">Patreon</a>
+          <!-- react-text: 57 -->.
           <!-- /react-text -->
         </p>
       </div>

@@ -15,6 +15,9 @@ const introspectionQueryResultData = {
                     {
                         "name": "UpdatedRead",
                     },
+                    {
+                        "name": "UpdatedGoal",
+                    },
                 ],
             },
         ],

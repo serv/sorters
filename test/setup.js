@@ -16,7 +16,7 @@ export const setup = async () => {
             }
         })
         app.stderr.on('data', (data) => {
-            console.error(data.toString())
+            console.warn(data.toString())
         })
     })
 

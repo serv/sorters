@@ -2,7 +2,6 @@ import cheerio from 'cheerio'
 import pretty from 'pretty'
 import {ObjectID} from 'mongodb'
 import {setup, teardown} from './setup'
-import setCookie from 'set-cookie-parser'
 import {generateAndLogUser} from './fixtures'
 
 let app
@@ -24,32 +23,19 @@ afterAll(async () => {
     await teardown({db, app, browser})
 })
 
-describe('dashboard', () => {
-    it('redirects when unlogged', async () => {
-        const browserPage = await browser.createPage()
-        const status = await browserPage.open(`http://localhost:3000/dashboard`)
-        expect(status).toBe('success')
-
-        const text = await browserPage.property('content')
-        const $ = cheerio.load(text)
-        const page = $('#__next')
-        const pageHtml = page.html()
-        const html = pretty(pageHtml)
-        expect(html).toMatchSnapshot()
-    })
-
-    it('displays when logged', async () => {
+describe('goals', () => {
+    it('displays', async () => {
         const browserPage = await browser.createPage()
 
         await generateAndLogUser(browserPage, db)
-
-        const status = await browserPage.open(`http://localhost:3000/dashboard`)
+        
+        const status = await browserPage.open(`http://localhost:3000/goals`)
         expect(status).toBe('success')
+
         const text = await browserPage.property('content')
         const $ = cheerio.load(text)
         const page = $('#__next')
-        const pageHtml = page.html()
-        const html = pretty(pageHtml)
+        const html = pretty(page.html())
         expect(html).toMatchSnapshot()
     })
 })

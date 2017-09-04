@@ -47,38 +47,62 @@ describe('news', () => {
                     articleUrl: 'http://example.com/article',
                     videoUrl: 'http://example.com/video',
                 }
-            ]
+            ],
+            goals: [
+                {
+                    title: 'TestGoal',
+                },
+            ],
         })
         const Events = db.collection('events')
+        const date = new Date('2017-08-24T06:52:59.645Z')
         await Events.insertOne({
             userId: ObjectID(insertedId),
             type: 'created-read',
-            date: new Date('2017-08-24T06:52:59.645Z'),
+            date,
             title: 'Test',
         })
         await Events.insertOne({
             userId: ObjectID(insertedId),
             type: 'reading-read',
-            date: new Date('2017-08-24T06:52:59.645Z'),
+            date,
             title: 'Test',
         })
         await Events.insertOne({
             userId: ObjectID(insertedId),
             type: 'read-read',
-            date: new Date('2017-08-24T06:52:59.645Z'),
+            date,
             title: 'Test',
         })
         await Events.insertOne({
             userId: ObjectID(insertedId),
             type: 'spoke-about-read',
-            date: new Date('2017-08-24T06:52:59.645Z'),
+            date,
             title: 'Test',
         })
         await Events.insertOne({
             userId: ObjectID(insertedId),
             type: 'wrote-about-read',
-            date: new Date('2017-08-24T06:52:59.645Z'),
+            date,
             title: 'Test',
+        })
+        await Events.insertOne({
+            userId: ObjectID(insertedId),
+            type: 'created-goal',
+            date,
+            title: 'TestGoal',
+        })
+        await Events.insertOne({
+            userId: ObjectID(insertedId),
+            type: 'doing-goal',
+            date,
+            title: 'TestGoal',
+        })
+        await Events.insertOne({
+            userId: ObjectID(insertedId),
+            type: 'done-goal',
+            date,
+            title: 'TestGoal',
         })
         const browserPage = await browser.createPage()
         const status = await browserPage.open(`http://localhost:3000/news`)

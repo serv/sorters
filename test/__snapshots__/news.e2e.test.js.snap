@@ -65,7 +65,7 @@ exports[`news displays 1`] = `
 `;
 
 exports[`news displays read events 1`] = `
-"<div data-reactroot=\\"\\" data-reactid=\\"1\\" data-react-checksum=\\"-2099165476\\">
+"<div data-reactroot=\\"\\" data-reactid=\\"1\\" data-react-checksum=\\"901455493\\">
   <div data-reactid=\\"2\\">
     <!-- react-empty: 3 -->
     <div style=\\"padding-top:50px;padding-bottom:20px;\\" data-reactid=\\"4\\">
@@ -122,37 +122,46 @@ exports[`news displays read events 1`] = `
               </h4>
               <ul style=\\"padding-left:0;list-style-position:inside;\\" data-reactid=\\"42\\">
                 <li data-reactid=\\"43\\">
-                  <!-- react-text: 44 -->Spoke about
-                  <!-- /react-text --><span data-reactid=\\"45\\"><!-- react-text: 46 --><!-- /react-text --><!-- react-text: 47 -->&#xA0;<!-- /react-text --><a href=\\"http://example.com/video\\" data-reactid=\\"48\\">Test</a></span></li>
+                  <!-- react-text: 44 -->Achieved
+                  <!-- /react-text --><span data-reactid=\\"45\\"><!-- react-text: 46 --><!-- /react-text --><!-- react-text: 47 -->&#xA0;<!-- /react-text --><em data-reactid=\\"48\\">TestGoal</em></span></li>
                 <li data-reactid=\\"49\\">
-                  <!-- react-text: 50 -->Wrote about
-                  <!-- /react-text --><span data-reactid=\\"51\\"><!-- react-text: 52 --><!-- /react-text --><!-- react-text: 53 -->&#xA0;<!-- /react-text --><a href=\\"http://example.com/article\\" data-reactid=\\"54\\">Test</a></span></li>
+                  <!-- react-text: 50 -->Spoke about
+                  <!-- /react-text --><span data-reactid=\\"51\\"><!-- react-text: 52 --><!-- /react-text --><!-- react-text: 53 -->&#xA0;<!-- /react-text --><a href=\\"http://example.com/video\\" data-reactid=\\"54\\">Test</a></span></li>
                 <li data-reactid=\\"55\\">
-                  <!-- react-text: 56 -->Read
-                  <!-- /react-text --><span data-reactid=\\"57\\"><!-- react-text: 58 --><!-- /react-text --><!-- react-text: 59 -->&#xA0;<!-- /react-text --><em data-reactid=\\"60\\">Test</em></span></li>
+                  <!-- react-text: 56 -->Wrote about
+                  <!-- /react-text --><span data-reactid=\\"57\\"><!-- react-text: 58 --><!-- /react-text --><!-- react-text: 59 -->&#xA0;<!-- /react-text --><a href=\\"http://example.com/article\\" data-reactid=\\"60\\">Test</a></span></li>
                 <li data-reactid=\\"61\\">
-                  <!-- react-text: 62 -->Started reading
+                  <!-- react-text: 62 -->Read
                   <!-- /react-text --><span data-reactid=\\"63\\"><!-- react-text: 64 --><!-- /react-text --><!-- react-text: 65 -->&#xA0;<!-- /react-text --><em data-reactid=\\"66\\">Test</em></span></li>
                 <li data-reactid=\\"67\\">
-                  <!-- react-text: 68 -->Added books to reading list:
-                  <!-- /react-text --><span data-reactid=\\"69\\"><!-- react-text: 70 --><!-- /react-text --><!-- react-text: 71 -->&#xA0;<!-- /react-text --><em data-reactid=\\"72\\">Test</em></span></li>
+                  <!-- react-text: 68 -->Is working on
+                  <!-- /react-text --><span data-reactid=\\"69\\"><!-- react-text: 70 --><!-- /react-text --><!-- react-text: 71 -->&#xA0;<!-- /react-text --><em data-reactid=\\"72\\">TestGoal</em></span></li>
+                <li data-reactid=\\"73\\">
+                  <!-- react-text: 74 -->Started reading
+                  <!-- /react-text --><span data-reactid=\\"75\\"><!-- react-text: 76 --><!-- /react-text --><!-- react-text: 77 -->&#xA0;<!-- /react-text --><em data-reactid=\\"78\\">Test</em></span></li>
+                <li data-reactid=\\"79\\">
+                  <!-- react-text: 80 -->Wants to achieve
+                  <!-- /react-text --><span data-reactid=\\"81\\"><!-- react-text: 82 --><!-- /react-text --><!-- react-text: 83 -->&#xA0;<!-- /react-text --><em data-reactid=\\"84\\">TestGoal</em></span></li>
+                <li data-reactid=\\"85\\">
+                  <!-- react-text: 86 -->Added books to reading list:
+                  <!-- /react-text --><span data-reactid=\\"87\\"><!-- react-text: 88 --><!-- /react-text --><!-- react-text: 89 -->&#xA0;<!-- /react-text --><em data-reactid=\\"90\\">Test</em></span></li>
               </ul>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <footer data-reactid=\\"73\\">
-      <div class=\\"container\\" data-reactid=\\"74\\">
-        <hr data-reactid=\\"75\\">
-        <p data-reactid=\\"76\\">
-          <!-- react-text: 77 -->Brought to you with &#x2764; by
+    <footer data-reactid=\\"91\\">
+      <div class=\\"container\\" data-reactid=\\"92\\">
+        <hr data-reactid=\\"93\\">
+        <p data-reactid=\\"94\\">
+          <!-- react-text: 95 -->Brought to you with &#x2764; by
           <!-- /react-text -->
-          <a href=\\"/about\\" data-reactid=\\"78\\">Nick Redmark</a>
-          <!-- react-text: 79 -->. Support and discuss the development of this platform on
+          <a href=\\"/about\\" data-reactid=\\"96\\">Nick Redmark</a>
+          <!-- react-text: 97 -->. Support and discuss the development of this platform on
           <!-- /react-text -->
-          <a href=\\"https://www.patreon.com/nickredmark\\" target=\\"_blank\\" data-reactid=\\"80\\">Patreon</a>
-          <!-- react-text: 81 -->.
+          <a href=\\"https://www.patreon.com/nickredmark\\" target=\\"_blank\\" data-reactid=\\"98\\">Patreon</a>
+          <!-- react-text: 99 -->.
           <!-- /react-text -->
         </p>
       </div>

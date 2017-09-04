@@ -29,9 +29,9 @@ const DashboardComponent = ({user}) => (
               <p><a className="btn btn-default" href="/profile" role="button">Manage profile</a></p>
             </div>
             <div className="col-md-4">
-              <h2>Account</h2>
-              <p>Set your username, password etc.</p>
-              <p><a className="btn btn-default" href="/account" role="button">Manage account</a></p>
+              <h2>Goals</h2>
+              <p>Share your goals and leave updates.</p>
+              <p><a className="btn btn-default" href="/goals" role="button">Manage goals</a></p>
             </div>
             <div className="col-md-4">
               <h2>Reading list</h2>
@@ -49,6 +49,11 @@ const DashboardComponent = ({user}) => (
               <h2>Chat</h2>
               <p>Chat with other sorters (a Discord channel).</p>
               <p><a className="btn btn-default" href="https://discord.gg/6Q8v9Sm" role="button" target="_blank">Chat</a></p>
+            </div>
+            <div className="col-md-4">
+              <h2>Account</h2>
+              <p>Set your username, password etc.</p>
+              <p><a className="btn btn-default" href="/account" role="button">Manage account</a></p>
             </div>
           </div>
     </div>

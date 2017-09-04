@@ -6,6 +6,7 @@ import {graphql} from 'react-apollo'
 import gql from 'graphql-tag'
 import withLoginRequired from 'staart/lib/hocs/login-required'
 import Form from 'staart/lib/components/form'
+import {errorMessage} from '../utils/errors'
 
 export default withPage(() => (
     <Layout title="Profile" page="profile">
@@ -41,11 +42,6 @@ const profileFields = [
     {
         name: 'bio',
         label: 'Bio',
-        type: 'text',
-    },
-    {
-        name: 'goals',
-        label: 'Goals',
         type: 'text',
     },
     {
@@ -90,7 +86,6 @@ const ProfileQuery = gql`
                 name
                 about
                 bio
-                goals
                 website
                 blog
                 youtube
@@ -159,7 +154,7 @@ class ProfileFormComponent extends Component {
                                 .catch(e => {
                                     this.setState({
                                         state: 'error',
-                                        message: e.message
+                                        message: errorMessage(e)
                                     })
                                 })
                             }}
